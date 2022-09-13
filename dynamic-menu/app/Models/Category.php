@@ -22,10 +22,17 @@ class Category extends Model
     private static function formatTree($categories, $allCategories)
     {
         foreach ($categories as $category) {
-            $category->childern = $allCategories->where('parent_id', $category->id)->values();
-            if ($category->childern->isNotEmpty()) {
-                self::formatTree($category->childern, $allCategories);
+            $category->children = $allCategories->where('parent_id', $category->id)->values();
+
+            if ($category->children->isNotEmpty()) {
+                self::formatTree($category->children, $allCategories);
             }
         }
+    }
+
+    public function isChild()
+    {
+        dd($this);
+        return $this->parent_id !== null;
     }
 }
