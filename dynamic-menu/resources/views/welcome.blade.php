@@ -15,90 +15,11 @@
 
 <body>
 
-    {{-- @foreach ($categories->child as $cat)
-        <div>{{ $cat->name }}</div>
-    @endforeach --}}
-
-
-    <div class="menu-bar">
-        <h1 class="logo">Lara<span> gigs.</span></h1>
-        <ul>
-            @foreach ($categories as $category)
-                <li>
-                    <a href="#">{{ $category->name }} <i class="fas fa-caret-down"></i></a>
-
-                    @foreach ($category->children as $child)
-                        <div class="dropdown-menu">
-                            <ul>
-                                @foreach ($child->children as $child1)
-                                    <li>
-                                        <a href="#">{{ $child1->name }} <i class="fas fa-caret-right"></i></a>
-
-
-                                        <div class="dropdown-menu-1">
-                                            <ul>
-                                                @foreach ($child1->children as $child2)
-                                                    <li><a href="#">{{ $child2->name }}</a></li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-
-                                    </li>
-                                @endforeach
-
-                            </ul>
-                        </div>
-                    @endforeach
-
-                </li>
-            @endforeach
-        </ul>
-    </div>
-
-    <div class="hero">
-        &nbsp;
-    </div>
-
-
-
-
-
-    {{-- <div class="menu-bar">
-        <h1 class="logo">Lara<span> gigs.</span></h1>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Pages <i class="fas fa-caret-down"></i></a>
-
-                <div class="dropdown-menu">
-                    <ul>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li>
-                            <a href="#">Team <i class="fas fa-caret-right"></i></a>
-
-                            <div class="dropdown-menu-1">
-                                <ul>
-                                    <li><a href="#">Team-1</a></li>
-                                    <li><a href="#">Team-2</a></li>
-                                    <li><a href="#">Team-3</a></li>
-                                    <li><a href="#">Team-4</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="#">Blog</a>
-            </li>
-            <li><a href="#">Contact us</a></li>
-        </ul>
-    </div>
-
-    <div class="hero">
-        &nbsp;
-    </div> --}}
+    <ul id="menu">
+        @foreach ($categories as $category)
+            <x-category :category="$category" />
+        @endforeach
+    </ul>
 
 </body>
 

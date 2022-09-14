@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,6 @@ Route::get('/', function () {
         'categories' => Category::tree()
     ]);
 });
+
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');

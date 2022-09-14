@@ -4,17 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Category extends Component
+class cat extends Component
 {
-    public $category;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($category)
+    public function __construct()
     {
-        $this->category = $category;
+        //
     }
 
     /**
@@ -24,6 +23,6 @@ class Category extends Component
      */
     public function render()
     {
-        return view('components.category');
+        return view('components.cat');
     }
 }
