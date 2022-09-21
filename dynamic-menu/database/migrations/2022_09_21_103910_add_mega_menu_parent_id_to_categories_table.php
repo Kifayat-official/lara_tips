@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('role')->default('0')->after('name');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->integer('mega_menu_parent_id')->nullable()->after('parent_id');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropColumn('mega_menu_parent_id');
         });
     }
 };

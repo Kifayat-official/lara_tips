@@ -15,11 +15,18 @@
 
 <body>
 
-    <ul id="menu">
-        @foreach ($categories as $category)
-            <x-category :category="$category" />
-        @endforeach
-    </ul>
+    <div style="display: block; width:100%">
+        <ul id="menu">
+            @foreach ($categories as $category)
+                <x-category :category="$category" />
+            @endforeach
+        </ul>
+    </div>
+
+    <div style="display: block; width:100%">
+        <x-mega-menu />
+    </div>
+
 
 </body>
 
