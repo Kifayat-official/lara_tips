@@ -15,17 +15,33 @@
 
 <body>
 
-    <div style="display: block; width:100%">
-        <ul id="menu">
-            @foreach ($categories as $category)
-                <x-category :category="$category" />
-            @endforeach
-        </ul>
+    <div class="navbar">
+
+        @foreach ($categories as $category)
+            <div class="dropdown">
+                @if (is_null($category->parent_id))
+                    <button class="dropbtn"> {{ $category->name }} <i class="fa fa-caret-down"></i> </button>
+                @endif
+                @if ($category->children)
+                    <div class="dropdown-content">
+                        <div class="row">
+                            @foreach ($category->children as $child)
+                                <div class="column">
+                                    <h3>{{ $child->name }}</h3>
+                                    @foreach ($child->children as $child)
+                                        <a href="#">{{ $child->name }}</a>
+                                    @endforeach
+                                    {{-- <x-category :category="$child" /> --}}
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            </div>
+        @endforeach
+
     </div>
 
-    <div style="display: block; width:100%">
-        <x-mega-menu />
-    </div>
 
 
 </body>

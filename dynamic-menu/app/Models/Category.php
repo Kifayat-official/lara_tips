@@ -14,18 +14,20 @@ class Category extends Model
         $allCategories = Category::get();
         $rootCategories = $allCategories->whereNull('parent_id');
 
+        //dd($rootCategories);
+
         self::formatTree($rootCategories, $allCategories);
 
         return $rootCategories;
     }
 
-    private static function formatTree($categories, $allCategories)
+    private static function formatTree($rootCategories, $allCategories)
     {
-        foreach ($categories as $category) {
-            $category->children = $allCategories->where('parent_id', $category->id)->values();
+        foreach ($rootCategories as $rootCategory) {
+            $rootCategory->children = $allCategories->where('parent_id', $rootCategory->id)->values();
 
-            if ($category->children->isNotEmpty()) {
-                self::formatTree($category->children, $allCategories);
+            if ($rootCategory->children->isNotEmpty()) {
+                self::formatTree($rootCategory->children, $allCategories);
             }
         }
     }
