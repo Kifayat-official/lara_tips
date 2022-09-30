@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('css')
+    <link rel="stylesheet" href="/resources/css/tree.css">
+@endpush
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
