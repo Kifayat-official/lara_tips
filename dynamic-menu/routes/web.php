@@ -17,11 +17,11 @@ use App\Models\Heirarchy;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
+Route::get('/mega-menu', function () {
+    return view('mega-menu', [
         'categories' => Category::tree()
     ]);
-});
+})->name('mega-menu');
 
 Route::get('/heirarchy', function () {
     return view('heirarchy', [
@@ -30,4 +30,4 @@ Route::get('/heirarchy', function () {
 })->name('heirarchy');
 
 Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
