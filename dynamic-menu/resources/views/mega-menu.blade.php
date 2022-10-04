@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.blank')
 
 @push('css')
     @vite(['resources/css/mega-menu.css', 'resources/css/nav.css'])
