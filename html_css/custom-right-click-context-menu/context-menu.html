@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context Menu with Feather Icons - MsdCodes</title>
+
+    <!-- ==================== CSS FILE ==================== -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- ==================== FAVICON ==================== -->
+    <link rel="shortcut icon" href="assets/images/Logo.png" type="image/x-icon">
+
+    <!-- ==================== METAs ==================== -->
+    <meta name="description" content="Context Menu with Feather Icons - MsdCodes">
+    <meta name="author" content="Msd Codes">
+    <meta name="keywords" content="Feather Icons, Context Menu, Msd">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main class="content">
+        <div class="container">
+            <ul class="tasks">
+                <li class="task" data-id="3">
+                    <div class="task__content">
+                        Go To Grocery
+                    </div>
+                    <div class="task__actions">
+                        <i class="fa fa-eye"></i>
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </li>
+                <li class="task" data-id="2">
+                    <div class="task__content">
+                        Type Some Code
+                    </div>
+                    <div class="task__actions">
+                        <i class="fa fa-eye"></i>
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </li>
+                <li class="task" data-id="1">
+                    <div class="task__content">
+                        Build An App
+                    </div>
+                    <div class="task__actions">
+                        <i class="fa fa-eye"></i>
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <nav id="context-menu" class="context-menu">
+        <ul class="context-menu__items">
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> View Task</a>
+            </li>
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i> Edit Task</a>
+            </li>
+            <li class="context-menu__item">
+                <a href="#" class="context-menu__link" data-action="Delete"><i class="fa fa-times"></i> Delete Task</a>
+            </li>
+        </ul>
+    </nav>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+
+
+</html>
