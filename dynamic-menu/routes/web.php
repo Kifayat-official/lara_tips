@@ -29,5 +29,9 @@ Route::get('/heirarchy', function () {
     ]);
 })->name('heirarchy');
 
+Route::get('/list-tree', function () {
+    return view('list-tree');
+})->name('list-tree');
+
 Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
