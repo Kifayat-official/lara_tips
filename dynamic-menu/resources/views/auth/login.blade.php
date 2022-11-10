@@ -15,7 +15,11 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
-
+                            @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <div>{{$error}}</div>
+                            @endforeach
+                        @endif
 
                             {{-- Email --}}
                             <div class="row mb-3">
@@ -27,11 +31,12 @@
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                    @error('email')
+                                    {{-- @error('email') --}}
+                                    @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>{{ $errors->first('email') }}</strong>
                                         </span>
-                                    @enderror
+                                    @endif
                                 </div>
                             </div>
 
@@ -45,11 +50,17 @@
                                         class="form-control @error('company_code') is-invalid @enderror" name="company_code"
                                         required autocomplete="company_code">
 
-                                    @error('company_code')
+                                        {{-- @if ($errors->has('email'))
+    <span class="invalid-feedback">
+        <strong>{{ $errors->first('email') }}</strong>
+    </span>
+@endif --}}
+
+                                        @if ($errors->has('company_code'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>{{ $errors->first('company_code') }}</strong>
                                         </span>
-                                    @enderror
+                                        @endif
                                 </div>
                             </div>
 
@@ -63,11 +74,17 @@
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
 
-                                    @error('password')
+                                    {{-- @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror
+                                    @enderror --}}
+
+                                    @if ($errors->has('password'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
 
