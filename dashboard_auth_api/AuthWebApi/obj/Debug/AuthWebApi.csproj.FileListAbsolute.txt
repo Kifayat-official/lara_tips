@@ -1,0 +1,189 @@
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\AuthWebApi.dll.config
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\AuthWebApi.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\AuthWebApi.pdb
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Antlr3.Runtime.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\EntityFramework.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\EntityFramework.SqlServer.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.AspNet.Identity.Core.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Web.Infrastructure.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Newtonsoft.Json.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Net.Http.Formatting.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Helpers.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Http.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Http.WebHost.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Mvc.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Optimization.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Razor.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.WebPages.Deployment.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.WebPages.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.WebPages.Razor.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\WebGrease.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\EntityFramework.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\EntityFramework.SqlServer.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.AspNet.Identity.Core.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Newtonsoft.Json.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Net.Http.Formatting.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Helpers.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Http.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Http.WebHost.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Mvc.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Optimization.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Razor.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.WebPages.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.WebPages.Deployment.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.WebPages.Razor.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\obj\Debug\AuthWebApi.Migrations.InitialDB.resources
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\obj\Debug\AuthWebApi.Migrations.changedIdentityDefaultTableNames.resources
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\obj\Debug\AuthWebApi.Migrations.newColumnsAddedToUserTable.resources
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\obj\Debug\AuthWebApi.csproj.GenerateResource.Cache
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\obj\Debug\AuthWebApi.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\obj\Debug\AuthWebApi.pdb
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Cors.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Http.Cors.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\System.Web.Http.Cors.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Antlr3.Runtime.pdb
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Cors.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Security.Cookies.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Security.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Security.OAuth.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Owin.dll
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Cors.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Security.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Security.Cookies.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\bin\Microsoft.Owin.Security.OAuth.xml
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\obj\Debug\AuthWebApi.Migrations.AddRegionNameInUserTable.resources
+E:\OFFICE_SOFT\APPS\Dashboard\auth-webApi\AuthWebApi\AuthWebApi\obj\Debug\AuthWebApi.csprojResolveAssemblyReference.cache
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\AuthWebApi.dll.config
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\AuthWebApi.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\AuthWebApi.pdb
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Antlr3.Runtime.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\EntityFramework.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\EntityFramework.SqlServer.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.Core.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Cors.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.Cookies.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.OAuth.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Web.Infrastructure.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Newtonsoft.Json.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Owin.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Net.Http.Formatting.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Cors.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Helpers.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.Cors.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.WebHost.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Mvc.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Optimization.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Razor.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.Deployment.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.Razor.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\WebGrease.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\EntityFramework.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\EntityFramework.SqlServer.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.Core.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Cors.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.Cookies.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.OAuth.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Newtonsoft.Json.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Net.Http.Formatting.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.Cors.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Helpers.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.WebHost.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Mvc.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Optimization.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Razor.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.Deployment.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.Razor.xml
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Antlr3.Runtime.pdb
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.csprojAssemblyReference.cache
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.Migrations.InitialDB.resources
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.Migrations.changedIdentityDefaultTableNames.resources
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.Migrations.newColumnsAddedToUserTable.resources
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.Migrations.AddRegionNameInUserTable.resources
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.csproj.GenerateResource.cache
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.csproj.CoreCompileInputs.cache
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.csproj.CopyComplete
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.dll
+F:\OFFICE WORK\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.pdb
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\AuthWebApi.dll.config
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\AuthWebApi.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\AuthWebApi.pdb
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Antlr3.Runtime.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\EntityFramework.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\EntityFramework.SqlServer.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.Core.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Cors.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.Cookies.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.OAuth.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Web.Infrastructure.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Newtonsoft.Json.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Owin.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Net.Http.Formatting.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Cors.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Helpers.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.Cors.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.WebHost.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Mvc.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Optimization.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Razor.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.Deployment.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.Razor.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\WebGrease.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\EntityFramework.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\EntityFramework.SqlServer.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.Core.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Cors.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.Cookies.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Microsoft.Owin.Security.OAuth.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Newtonsoft.Json.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Net.Http.Formatting.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.Cors.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Helpers.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Http.WebHost.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Mvc.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Optimization.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.Razor.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.Deployment.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\System.Web.WebPages.Razor.xml
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\bin\Antlr3.Runtime.pdb
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.csproj.CoreCompileInputs.cache
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.csproj.CopyComplete
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.dll
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.pdb
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.Migrations.ColumnPasswordRemoved.resources
+E:\OFFICE_SOFT\APPS\ibs_dashboard\ibs_dashboard_api\dashboard_auth_api\AuthWebApi\obj\Debug\AuthWebApi.csproj.GenerateResource.cache

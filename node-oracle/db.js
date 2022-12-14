@@ -1,4 +1,5 @@
 var oracledb = require('oracledb');
+
 oracledb.getConnection({
     user: "tescobill",
     password: "tescobill_pitc",
