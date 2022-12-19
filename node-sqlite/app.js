@@ -15,9 +15,12 @@ let sql = `SELECT *
 // Querying all row
 db.all(sql, [15], (err, rows) => {
     if (err) throw err
-    rows.forEach((row) => {
-        console.log(row.RegionName);
-    });
+    if (rows.length > 0) {
+
+        rows.forEach((row) => {
+            console.log(row.RegionName);
+        });
+    }
 });
 
 // If the result set is empty, the callback is never called. 

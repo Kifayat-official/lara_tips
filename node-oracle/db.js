@@ -18,6 +18,7 @@ oracledb.getConnection({
         doRelease(connection);
     });
 });
+
 function doRelease(connection) {
     connection.release(function (err) {
         if (err) {
