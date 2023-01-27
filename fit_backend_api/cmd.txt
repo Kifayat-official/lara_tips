@@ -6,6 +6,8 @@ Express With TS:
 	=> Enable tsc command
 5. tsc init
 
+npx typeorm init --name MyProject --database mongodb
+
 
 1. npm i -y
 2. npm i express
