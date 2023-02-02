@@ -2,7 +2,7 @@
 2. npx comes with nodejs to execute npm packages without the need to install them globally.
 3. npx typeorm init --name project-name-here --database mysql
 4. npm i -D ts-node-dev
-	=> ts-node used to run typescript in nodejs env while ts-node-dev is used to auto-restart server upon changes, uses ts-node & typescript under the hood.
+	=> ts-node is used to run TypeScript code directly without first compiling them to JavaScript, while ts-node-dev adds hot-reloading functionality to ts-node.
 	=> nodemon can also be used to auto-restart server upon changes in *.ts files.
 5. npm i express
 6. npm i -D @types/express
