@@ -1,8 +1,8 @@
 import { User } from "../entity/User";
-import { RegisterRequestPayload } from "../payload/request/auth.payload";
+import { RegisterUserRequestPayload } from "../payload/request/auth.payload";
 
-export default class RegisterMapper {
-    public static reqToEntity(requestPayload: RegisterRequestPayload) {
+export default class UserRegisterMapper {
+    public static reqToEntity(requestPayload: RegisterUserRequestPayload) {
         let user: User = {
             id: requestPayload.id,
             username: requestPayload.email,

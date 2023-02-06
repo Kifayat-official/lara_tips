@@ -1,4 +1,4 @@
-export interface RegisterRequestPayload {
+export interface RegisterUserRequestPayload {
     id: number
     email: string
     password: string
@@ -6,7 +6,7 @@ export interface RegisterRequestPayload {
     lastName: string
 }
 
-export interface LoginRequestPayload {
+export interface LoginUserRequestPayload {
     email: string
     password: string
 }
