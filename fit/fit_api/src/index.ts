@@ -1,15 +1,23 @@
-import express, { Request, Response } from "express"
-import AuthRouter from "./routes/auth.route"
+import express from "express"
+import MysqlFitDbDataSource from "./database/db.config"
 import RootRouter from "./routes/root.routes"
 
 const app = express()
 
-//app.use("/auth", AuthRouter)
+app.use(express.json())
 app.use("/api/v1", RootRouter)
 
-app.listen(5000, () => {
-    console.log("Server is running on PORT: 5000")
+MysqlFitDbDataSource.initialize().then(() => {
+    console.log("MySql Db Initialized!")
+
+    app.listen(5000, () => {
+        console.log("Server is running on PORT: 5000")
+    })
+}).catch(() => {
+    console.log("Error occured while connecting to database.")
 })
+
+
 
 //import { MysqlFitDbDataSource, MySqlTestDbDataSource } from "./data-source"
 // import { TestUser } from "./entity/TestUser"
