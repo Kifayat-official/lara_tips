@@ -3,19 +3,19 @@ import { User } from "../entities/user.entity";
 
 export default class UserRepo {
 
-    public static async getUsers() {
-        return await MysqlFitDbDataSource.getRepository(User)
+    public static async all() {
+        return await MysqlFitDbDataSource.getRepository(User).find()
     }
-    public static async getUser(id: number) {
+    public static async get(id: number) {
         return await MysqlFitDbDataSource.getRepository(User).findOne({ where: { id: id } })
     }
-    public static async createUser(user: User) {
+    public static async create(user: User) {
         return await MysqlFitDbDataSource.getRepository(User).save(user)
     }
-    public static async deleteUser(id: number) {
+    public static async delete(id: number) {
         return await MysqlFitDbDataSource.getRepository(User).delete(id)
     }
-    public static async updateUser(user: User) {
+    public static async update(user: User) {
         return await MysqlFitDbDataSource.getRepository(User).update({ id: user.id }, user)
     }
 }
