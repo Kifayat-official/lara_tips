@@ -1,4 +1,5 @@
 export interface UserEntityRequestPayload {
+    id: number
     email: string
     password: string
     firstName: string

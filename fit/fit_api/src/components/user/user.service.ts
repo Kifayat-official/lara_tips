@@ -1,32 +1,33 @@
-import { User } from "../entities/user.entity";
-import UserMapper from "../mappers/user.mapper";
-import { UserEntityRequestPayload } from "../payload/request/user.payload";
-import { UserEntityResponse } from "../payload/response/user.response";
-import UserRepo from "../repositories/user.repo";
+import { User } from "../../database/entities/user.entity";
+import UserMapper from "./user.mapper";
+import UserRepo from "./user.repo";
+import { UserEntityRequestPayload } from "./user.request";
+import { UserEntityResponse } from "./user.response";
 
 export default class UserService {
     // get single user by id
     public static async get(id: number) {
         let user: User = await UserRepo.get(id)
-        if(user) {
+        if (user) {
             let userRes = UserMapper.entityToResponse(user)
             return userRes
         }
         else {
             return "Sorry, user does not exists!";
         }
-        
+
     }
     // get all users
     public static async all() {
-        let data: UserEntityResponse[] = (await UserRepo.all()).map( (user) => {
+        let data: UserEntityResponse[] = (await UserRepo.all()).map((user) => {
             return UserMapper.entityToResponse(user)
         })
         return await UserRepo.all()
     }
     // create user
     public static async create(requestPayload: UserEntityRequestPayload) {
-        return await UserRepo.create(UserMapper.reqToEntity(requestPayload));
+        //UserMapper.reqToEntity(requestPayload)
+        return await UserRepo.create(requestPayload);
     }
     // update user
     public static async update(requestPayload: UserEntityRequestPayload) {
@@ -35,5 +36,8 @@ export default class UserService {
     // delete user
     public static async delete(id: number) {
         return await UserRepo.delete(id)
+    }
+    private static hashPassword() {
+
     }
 }

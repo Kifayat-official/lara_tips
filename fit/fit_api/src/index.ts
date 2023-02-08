@@ -1,6 +1,6 @@
 import express from "express"
 import MysqlFitDbDataSource from "./database/db.config"
-import RootRouter from "./routes/root.routes"
+import RootRouter from "./root.routes"
 
 const app = express()
 

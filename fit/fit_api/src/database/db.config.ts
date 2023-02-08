@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm";
 import path from "path";
+import { User } from "./entities/user.entity";
 
 const MysqlFitDbDataSource = new DataSource({
     type: "mysql",
@@ -10,7 +11,7 @@ const MysqlFitDbDataSource = new DataSource({
     database: "fit",
     synchronize: true,
     logging: true,
-    entities: [path.join(__dirname, "..", "entities/**.entity{.ts,.js}")],
+    entities: [User],
     migrations: [],
     subscribers: [],
 })
