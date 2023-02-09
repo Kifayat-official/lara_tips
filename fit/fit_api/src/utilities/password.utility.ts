@@ -1,18 +1,16 @@
 import * as bcrypt from 'bcrypt';
 
-export class password {
-
-    private readonly saltRounds: Number = 10;
-    private hashedPassword: string
+export class Password {
 
     // Hashing a password
-    public async hashPassword(password) {
-        this.hashedPassword = await bcrypt.hash(password, this.saltRounds)
-        return this.hashedPassword;
+    public static async hashPassword(password) {
+        const saltRounds: Number = 10
+        let hashedPassword: string = await bcrypt.hash(password, saltRounds)
+        return hashedPassword;
     }
 
     // Verifying a password
-    private async verifyPassword(password, hashedPassword) {
+    private static async verifyPassword(password, hashedPassword) {
         const isMatch = await bcrypt.compare(password, hashedPassword);
         return isMatch;
     }

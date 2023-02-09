@@ -6,8 +6,8 @@ import { UserEntityResponse } from "./user.response";
 
 export default class UserService {
     // get single user by id
-    public static async get(id: number) {
-        let user: User = await UserRepo.get(id)
+    public static async getUserById(id: number) {
+        let user: User = await UserRepo.getUserById(id)
         if (user) {
             let userRes = UserMapper.entityToResponse(user)
             return userRes
@@ -15,7 +15,16 @@ export default class UserService {
         else {
             return "Sorry, user does not exists!";
         }
-
+    }
+    public static async getUserByUsername(username: string) {
+        let user: User = await UserRepo.getUserByUsername(username)
+        if (user) {
+            let userRes = UserMapper.entityToResponse(user)
+            return userRes
+        }
+        else {
+            return "Sorry, user does not exists!";
+        }
     }
     // get all users
     public static async all() {
@@ -36,8 +45,5 @@ export default class UserService {
     // delete user
     public static async delete(id: number) {
         return await UserRepo.delete(id)
-    }
-    private static hashPassword() {
-
     }
 }

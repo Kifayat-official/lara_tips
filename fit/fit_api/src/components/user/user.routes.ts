@@ -13,7 +13,7 @@ UserRouter.post("/create", async (req: Request, res: Response) => {
 })
 
 UserRouter.get("/find/:id", async (req: Request, res: Response) => {
-    res.json(await UserService.get(Number(req.params.id)))
+    res.json(await UserService.getUserById(Number(req.params.id)))
 })
 
 UserRouter.put("/update", async (req: Request, res: Response) => {

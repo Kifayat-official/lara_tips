@@ -1,6 +1,6 @@
 export interface UserEntityRequestPayload {
     id: number
-    email: string
+    username: string
     password: string
     firstName: string
     lastName: string
@@ -9,6 +9,6 @@ export interface UserEntityRequestPayload {
 }
 
 export interface LoginUserRequestPayload {
-    email: string
+    username: string
     password: string
 }

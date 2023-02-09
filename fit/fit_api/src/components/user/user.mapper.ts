@@ -6,7 +6,7 @@ export default class UserMapper {
     public static reqToEntity(requestPayload: UserEntityRequestPayload) {
         let user: User = new User()
         user.id = requestPayload.id
-        user.username = requestPayload?.email
+        user.username = requestPayload?.username
         user.password = requestPayload.password
         user.firstName = requestPayload.firstName
         user.lastName = requestPayload.lastName
@@ -16,7 +16,7 @@ export default class UserMapper {
     public static entityToResponse(user: User) {
         let userRes: UserEntityResponse = {
             id: Number(user.id),
-            email: user.username,
+            username: user.username,
             firstName: user.firstName,
             lastName: user.lastName
         }

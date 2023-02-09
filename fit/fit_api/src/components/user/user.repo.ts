@@ -7,8 +7,11 @@ export default class UserRepo {
     public static async all() {
         return await MysqlFitDbDataSource.getRepository(User).find()
     }
-    public static async get(id: number) {
+    public static async getUserById(id: number) {
         return await MysqlFitDbDataSource.getRepository(User).findOne({ where: { id: id } })
+    }
+    public static async getUserByUsername(username: string) {
+        return await MysqlFitDbDataSource.getRepository(User).findOne({ where: { username: username } })
     }
     public static async create(user: UserEntityRequestPayload) {
         return await MysqlFitDbDataSource.getRepository(User).save(user)
@@ -19,4 +22,5 @@ export default class UserRepo {
     public static async update(updatedUser: User) {
         return await MysqlFitDbDataSource.getRepository(User).update({ id: updatedUser.id }, updatedUser)
     }
+
 }
