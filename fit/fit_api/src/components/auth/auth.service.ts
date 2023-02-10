@@ -1,9 +1,10 @@
-import { Jwt } from "../../utilities/jwt.utility";
-import { Password } from "../../utilities/password.utility";
+import UserMapper from "../user/user.mapper";
 import UserRepo from "../user/user.repo";
 import { UserEntityRequestPayload } from "../user/user.request";
+import { IUserEntityResponse } from "../user/user.response";
 import UserService from "../user/user.service";
-import { ISignupResponse } from "./signup.response";
+import AuthMapper from "./auth.mapper";
+import { IAuthResponse } from "./auth.response";
 
 export default class AuthService {
 
@@ -22,33 +23,22 @@ export default class AuthService {
 
     // User registration
     public static async signUp(requestPayload: UserEntityRequestPayload) {
-        let response: ISignupResponse
+        let signupResponse: IAuthResponse
+        let userEntityResponse: IUserEntityResponse
+
         try {
-            // existing user check
-            let isUserExists = UserService.getUserByUsername(requestPayload.username)
-            if (isUserExists) {
-                response.status = 400
-                response.message = "User Already Exists!"
-                response.data.createdUser = null
-                response.data.token = null
-                return response
+            // check if user already exists
+            userEntityResponse = await UserService.getUserByUsername(requestPayload.username)
+            if (userEntityResponse) {
+                return signupResponse = await AuthMapper.userAlreadyExistsResponse(userEntityResponse)
             }
 
-            // hash password
-            requestPayload.password = await Password.hashPassword(requestPayload.password)
-
             // user creation
-            let createdUser = await UserRepo.create(requestPayload)
+            let userReqToEntity = await UserMapper.reqToEntity(requestPayload)
+            let userEntity = await UserRepo.create(userReqToEntity)
+            userEntityResponse = UserMapper.entityToResponse(userEntity)
 
-            // generate token
-            const jwt = await Jwt.generateJwt(createdUser)
-
-            response.status = 201
-            response.message = "User Created Successfully!"
-            response.data.createdUser = createdUser
-            response.data.token = jwt
-
-            return response
+            return signupResponse = await AuthMapper.userCreatedResponse(userEntityResponse)
 
         } catch (error) {
             console.log(error)

@@ -1,4 +1,4 @@
-export interface UserEntityResponse {
+export interface IUserEntityResponse {
     id: number
     username: string
     firstName: string

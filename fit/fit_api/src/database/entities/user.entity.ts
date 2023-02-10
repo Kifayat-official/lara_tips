@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
 
 @Entity()
-export class User {
+export class UserEntity {
 
     @PrimaryGeneratedColumn()
     id: number
@@ -10,7 +10,7 @@ export class User {
     username: string
 
     @Column({ type: 'varchar', length: 150 })
-    password: string
+    passwordHash: string
 
     @Column({ type: 'varchar', length: 50 })
     firstName: string
