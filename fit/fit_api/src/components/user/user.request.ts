@@ -1,7 +1,7 @@
-export interface UserEntityRequestPayload {
+export interface IUserRequestPayload {
     id?: number
     username: string
     password: string
-    firstName?: string
-    lastName?: string
+    first_name?: string
+    last_name?: string
 }

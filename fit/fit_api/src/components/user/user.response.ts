@@ -1,6 +1,6 @@
-export interface IUserEntityResponse {
+export interface IUserResponse {
     id: number
     username: string
-    firstName: string
-    lastName: string
+    first_name: string
+    last_name: string
 }

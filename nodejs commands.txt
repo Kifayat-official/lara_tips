@@ -1,4 +1,4 @@
-1. Install latest version of nodejs
+1. Download nvm and install nodejs via nvm.
 2. Nodejs comes with npx to execute npm packages without the need to install them globally.
 3. npx typeorm init --name project-name-here --database database-name-here
 	=> typeorm command scaffolds typescript-based typeorm project.

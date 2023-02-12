@@ -1,43 +1,44 @@
-import { UserEntity } from "../../database/entities/user.entity";
+import { User } from "../../database/entities/user.entity";
+import { Password } from "../../utilities/password.utility";
 import UserMapper from "./user.mapper";
 import UserRepo from "./user.repo";
-import { UserEntityRequestPayload } from "./user.request";
-import { IUserEntityResponse } from "./user.response";
+import { IUserRequestPayload } from "./user.request";
+import { IUserResponse } from "./user.response";
 
 export default class UserService {
 
-    public static userEntityResponse: IUserEntityResponse
+    public static UserResponse: IUserResponse
 
     // get single user by id
     public static async getUserById(id: number) {
-        let user: UserEntity = await UserRepo.getUserById(id)
-        return UserService.userEntityResponse = user ? UserMapper.entityToResponse(user) : null
+        let user: User = await UserRepo.getUserById(id)
+        return UserService.UserResponse = user ? UserMapper.entityToResponse(user) : null
     }
 
     // Get single user by username
     public static async getUserByUsername(username: string) {
-        let user: UserEntity = await UserRepo.getUserByUsername(username)
-        return UserService.userEntityResponse = user ? UserMapper.entityToResponse(user) : null
+        let user: User = await UserRepo.getUserByUsername(username)
+        return UserService.UserResponse = user ? UserMapper.entityToResponse(user) : null
     }
 
     // Get all users
     public static async all() {
-        let userEntityResponseArr: IUserEntityResponse[] = (await UserRepo.all()).map((user) => {
+        let UserResponseArr: IUserResponse[] = (await UserRepo.all()).map((user) => {
             return UserMapper.entityToResponse(user)
         })
-        return userEntityResponseArr
+        return UserResponseArr
     }
 
     // Create user
-    public static async create(requestPayload: UserEntityRequestPayload) {
-        let userEntity: UserEntity = await UserMapper.reqToEntity(requestPayload)
-        return await UserRepo.create(userEntity);
+    public static async create(requestPayload: User) {
+        requestPayload.password = await Password.hashPassword(requestPayload.password)
+        return await UserMapper.entityToResponse(await UserRepo.create(requestPayload)) 
     }
 
     // Update user
-    public static async update(requestPayload: UserEntityRequestPayload) {
-        let userEntity: UserEntity = await UserMapper.reqToEntity(requestPayload)
-        return await UserRepo.update(userEntity)
+    public static async update(requestPayload: IUserRequestPayload) {
+        let User: User = await UserMapper.reqToEntity(requestPayload)
+        return await UserRepo.update(User)
     }
 
     // Delete user

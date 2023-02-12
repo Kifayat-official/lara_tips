@@ -1,25 +1,25 @@
-import { UserEntity } from "../../database/entities/user.entity";
+import { User } from "../../database/entities/user.entity";
 import { Password } from "../../utilities/password.utility";
-import { UserEntityRequestPayload } from "./user.request";
-import { IUserEntityResponse } from "./user.response";
+import { IUserRequestPayload } from "./user.request";
+import { IUserResponse } from "./user.response";
 
 export default class UserMapper {
-    public static async reqToEntity(requestPayload: UserEntityRequestPayload) {
-        let user: UserEntity = new UserEntity()
-        user.id = requestPayload.id
-        user.username = requestPayload?.username
-        user.passwordHash = await Password.hashPassword(requestPayload.password)
-        user.firstName = requestPayload.firstName
-        user.lastName = requestPayload.lastName
+    public static async reqToEntity(requestPayload: IUserRequestPayload) {
+        let user: User = new User()
+        //user.id = requestPayload?.id
+        user.username = requestPayload.username
+        user.password = await Password.hashPassword(requestPayload.password)
+        user.first_name = requestPayload?.first_name
+        user.last_name = requestPayload?.last_name
         return user
     }
 
-    public static entityToResponse(user: UserEntity) {
-        let userRes: IUserEntityResponse = {
+    public static entityToResponse(user: User) {
+        let userRes: IUserResponse = {
             id: Number(user.id),
             username: user.username,
-            firstName: user.firstName,
-            lastName: user.lastName
+            first_name: user.first_name,
+            last_name: user.last_name
         }
         return userRes
     }

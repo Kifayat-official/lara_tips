@@ -1,4 +1,4 @@
-import * as bcrypt from 'bcrypt';
+const bcrypt = require('bcrypt');
 
 export class Password {
 
@@ -10,7 +10,7 @@ export class Password {
     }
 
     // Verifying a password
-    private static async verifyPassword(password, hashedPassword) {
+    public static async verifyPassword(password, hashedPassword) {
         const isMatch = await bcrypt.compare(password, hashedPassword);
         return isMatch;
     }

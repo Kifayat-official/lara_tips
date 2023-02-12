@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
 
 @Entity()
-export class UserEntity {
+export class User {
 
     @PrimaryGeneratedColumn()
     id: number
@@ -10,17 +10,26 @@ export class UserEntity {
     username: string
 
     @Column({ type: 'varchar', length: 150 })
-    passwordHash: string
+    password: string
 
     @Column({ type: 'varchar', length: 50 })
-    firstName: string
+    first_name: string
 
     @Column({ type: 'varchar', length: 50 })
-    lastName: string
+    last_name: string
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
-    createdAt: Date;
+    created_at: Date;
 
     @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
-    updatedAt: Date;
+    updated_at: Date;
 }
+
+// To drop a table when specified inside @Entity() upon changes in table
+//   async function main() {
+//     const connection = await createConnection();
+//     await connection.query("DROP TABLE user_table");
+//     await connection.synchronize();
+//   }
+  
+//   main();
