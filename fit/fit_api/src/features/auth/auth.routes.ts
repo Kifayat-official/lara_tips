@@ -1,16 +1,11 @@
-import { Request, Response, Router } from "express"
-import { IUserRequestPayload } from "../../components/user/user.request"
-import AuthService from "./auth.service"
+import { Router } from "express"
+import AuthController from "./auth.controller"
+import AuthService from "./auth.controller"
 
 
 const AuthRouter = Router()
 
-AuthRouter.post("/signin", async (req: Request, res: Response) => {
-    res.json(await AuthService.signIn(req.body as {username, password}))
-})
-
-AuthRouter.post("/signup", async (req: Request, res: Response) => {
-    res.json(await AuthService.signUp(req.body as IUserRequestPayload))
-})
+AuthRouter.post("/signin", AuthController.signIn)
+AuthRouter.post("/signup", AuthService.signUp)
 
 export default AuthRouter

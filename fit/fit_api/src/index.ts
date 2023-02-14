@@ -1,10 +1,12 @@
 import express from "express"
 import MysqlFitDbDataSource from "./database/db.config"
+import { authMiddleware } from "./features/auth/auth.middleware"
 import RootRouter from "./root.routes"
 
 const app = express()
 
 app.use(express.json())
+//app.use(authMiddleware)
 app.use("/api/v1", RootRouter)
 
 MysqlFitDbDataSource.initialize().then(() => {

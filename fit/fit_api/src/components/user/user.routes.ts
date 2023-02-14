@@ -1,28 +1,17 @@
 import { Request, Response, Router } from "express"
-import { User } from "../../database/entities/user.entity"
-import { IUserRequestPayload } from "./user.request"
-import UserService from "./user.service"
+import { authMiddleware } from "../../features/auth/auth.middleware"
+import UserController from "./user.controller"
 
 const UserRouter = Router()
 
-UserRouter.get("/all", async (req: Request, res: Response) => {
-    res.send(await UserService.all())
-})
+UserRouter.get("/all", UserController.all)
 
-UserRouter.post("/create", async (req: Request, res: Response) => {
-    res.json(await UserService.create(req.body as User))
-})
+UserRouter.post("/create", UserController.create)
 
-UserRouter.get("/:id", async (req: Request, res: Response) => {
-    res.json(await UserService.getUserById(Number(req.params.id)))
-})
+UserRouter.get("/:id", UserController.getUserById)
 
-UserRouter.put("/update", async (req: Request, res: Response) => {
-    res.send(await UserService.update(req.body as IUserRequestPayload))
-})
+UserRouter.put("/update", UserController.update)
 
-UserRouter.delete("/:id", async (req: Request, res: Response) => {
-    res.send(await UserService.delete(Number(req.params.id)))
-})
+UserRouter.delete("/:id", authMiddleware, UserController.delete)
 
 export default UserRouter

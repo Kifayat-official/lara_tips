@@ -13,8 +13,8 @@ export class Jwt {
     }
 
     // Verifying JWT
-    private static async verifyJwt() {
-
+    public static async verifyJwt(token: string) {
+        return jwt.verify(token, Jwt.SECRET_KEY)
     }
 
 }
