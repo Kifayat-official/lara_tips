@@ -2,10 +2,11 @@ import { Request, Response } from "express";
 import UserMapper from "../../components/user/user.mapper";
 import UserRepo from "../../components/user/user.repo";
 import { IUserRequestPayload } from "../../components/user/user.request";
-import { IUserResponse } from "../../components/user/user.response";
+import { IUserResponsePayload } from "../../components/user/user.response";
 import { User } from "../../database/entities/user.entity";
-import { Password } from "../../utilities/password.utility";
+import { Password } from "../../common/utilities/password.utility";
 import AuthMapper from "./auth.mapper";
+import ExceptionMapper from "../../common/exception/exception.mapper";
 
 export default class AuthController {
 
@@ -28,12 +29,15 @@ export default class AuthController {
         }
         catch (error) {
             console.log(error)
+
+            let exception = ExceptionMapper.errorToResponse("An exception occured while logging in", error)
+            res.send(exception)
         }
     }
 
     // User registrationuserResponse
     public static async signUp(req: Request, res: Response) {
-        let userResponse: IUserResponse
+        let userResponse: IUserResponsePayload
         let requestPayload: IUserRequestPayload = req.body as IUserRequestPayload
         try {
             // check if user already exists
@@ -51,6 +55,8 @@ export default class AuthController {
 
         } catch (error) {
             console.log(error)
+            let exception = ExceptionMapper.errorToResponse("An exception occured while signing up", error)
+            res.send(exception)
         }
     }
 }

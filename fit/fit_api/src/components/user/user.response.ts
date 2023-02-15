@@ -1,6 +1,12 @@
-export interface IUserResponse {
+export interface IUserResponsePayload {
     id: number
     username: string
-    first_name: string
-    last_name: string
+    first_name: string | undefined
+    last_name: string | undefined
+}
+
+export interface IUserEndPointResponse {
+    status: number
+    message: string
+    data: { user: IUserResponsePayload }
 }

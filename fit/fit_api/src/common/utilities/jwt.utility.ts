@@ -1,6 +1,6 @@
-import { User } from "../database/entities/user.entity"
+import { User } from "../../database/entities/user.entity"
 import * as jwt from "jsonwebtoken"
-import { IUserResponse } from "../components/user/user.response"
+import { IUserResponse } from "../../components/user/user.response"
 
 export class Jwt {
 
