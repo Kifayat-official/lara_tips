@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToMany } from "typeorm"
+import { Project } from "./project.entity";
+import { Role } from "./role.entity";
 
 @Entity()
 export class User {
@@ -6,6 +8,12 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number
 
+    @ManyToMany(() => Role, role => role.users)
+    roles: Role[];
+    
+    @OneToMany(() => Project, project => project.manager)
+    managedProjects: Project[];
+    
     @Column({ type: 'varchar', length: 50 })
     username: string
 

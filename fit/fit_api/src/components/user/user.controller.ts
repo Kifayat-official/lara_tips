@@ -6,6 +6,7 @@ import UserRepo from "./user.repo";
 import { IUserRequestPayload } from "./user.request";
 import { IUserEndPointResponse, IUserResponsePayload } from "./user.response";
 import ExceptionMapper from "../../common/exception/exception.mapper";
+import { DeleteResult } from "typeorm";
 
 export default class UserController {
 
@@ -77,10 +78,11 @@ export default class UserController {
     // Update user
     public static async update(req: Request, res: Response) {
         try {
-            let requestPayload: IUserRequestPayload = req.body
-            let User: User = await UserMapper.reqToEntity(requestPayload)
-
-            res.send(await UserRepo.update(User))
+            const requestPayload: IUserRequestPayload = req.body
+            const user: User = await UserMapper.reqToEntity(requestPayload)
+            const updateResult = await UserRepo.update(user)
+            const userEndPointResponse = UserMapper.userUpdateEndpointResponse(updateResult)
+            res.send(userEndPointResponse)
         } catch (error) {
             console.log({ "message": error })
             let exception = ExceptionMapper.errorToResponse("An exception occured while updating a user", error)
@@ -91,11 +93,13 @@ export default class UserController {
     // Delete user
     public static async delete(req: Request, res: Response) {
         try {
-            let id = Number(req.params.id)
-            res.send(await UserRepo.delete(id))
+            const id = Number(req.params.id)
+            const result: DeleteResult = await UserRepo.delete(id)
+            const userEndPointResponse = UserMapper.userDeleteEndpointResponse(result)
+            res.send(userEndPointResponse)
         } catch (error) {
             console.log({ "message": error })
-            let exception = ExceptionMapper.errorToResponse("An exception occured while deleting a user", error)
+            const exception = ExceptionMapper.errorToResponse("An exception occured while deleting a user", error)
             res.send(exception)
         }
     }

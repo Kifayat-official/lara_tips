@@ -2,6 +2,7 @@ import { User } from "../../database/entities/user.entity";
 import { Password } from "../../common/utilities/password.utility";
 import { IUserRequestPayload } from "./user.request";
 import { IUserEndPointResponse, IUserResponsePayload } from "./user.response";
+import { DeleteResult, UpdateResult } from "typeorm";
 
 export default class UserMapper {
     public static async reqToEntity(requestPayload: IUserRequestPayload) {
@@ -23,21 +24,41 @@ export default class UserMapper {
         return userRes
     }
 
-    public static userCreationEndpointResponse(userResponse: IUserResponsePayload) {
+    public static userFetchEndpointResponse(userResponse: IUserResponsePayload) {
         let userEndPointResponse: IUserEndPointResponse = {
-            status: 201,
-            message: "User Created Successfully!",
-            data: { user: userResponse }
+            status: 200,
+            message: "User Fetched Successfully!",
+            data: { result: userResponse }
         }
 
         return userEndPointResponse
     }
 
-    public static userFetchEndpointResponse(userResponse: IUserResponsePayload) {
+    public static userCreationEndpointResponse(userResponse: IUserResponsePayload) {
         let userEndPointResponse: IUserEndPointResponse = {
-            status: 204,
-            message: "User Fetched Successfully!",
-            data: { user: userResponse }
+            status: 201,
+            message: "User Created Successfully!",
+            data: { result: userResponse }
+        }
+
+        return userEndPointResponse
+    }
+
+    public static userUpdateEndpointResponse(updateResult: UpdateResult) {
+        let userEndPointResponse: IUserEndPointResponse = {
+            status: 200,
+            message: "User Updated Successfully!",
+            data: { result: updateResult }
+        }
+
+        return userEndPointResponse
+    }
+
+    public static userDeleteEndpointResponse(userResponse: DeleteResult) {
+        let userEndPointResponse: IUserEndPointResponse = {
+            status: 202,
+            message: "User Deleted Successfully!",
+            data: { result: userResponse }
         }
 
         return userEndPointResponse

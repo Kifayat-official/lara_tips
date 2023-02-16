@@ -47,11 +47,11 @@ export default class AuthController {
             }
 
             // user creation
-            let user: User = await UserMapper.reqToEntity(requestPayload)
-            let newDbUser: User = await UserRepo.create(user)
+            const user: User = await UserMapper.reqToEntity(requestPayload)
+            const newDbUser: User = await UserRepo.create(user)
             userResponse = UserMapper.entityToResponse(newDbUser)
-
-            res.send(await AuthMapper.signUpSuccessResponse(userResponse))
+            const signupSuccessResponse = await AuthMapper.signUpSuccessResponse(userResponse)
+            res.send(signupSuccessResponse)
 
         } catch (error) {
             console.log(error)

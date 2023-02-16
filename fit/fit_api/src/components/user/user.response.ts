@@ -8,5 +8,5 @@ export interface IUserResponsePayload {
 export interface IUserEndPointResponse {
     status: number
     message: string
-    data: { user: IUserResponsePayload }
+    data: { result: any }
 }

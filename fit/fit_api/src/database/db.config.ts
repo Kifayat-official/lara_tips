@@ -15,7 +15,7 @@ const MysqlFitDbDataSource = new DataSource({
     database: "fit",
     synchronize: true,
     logging: true,
-    entities: [User],
+    entities: ['src/database/entities/*.entity.ts'],
     migrations: [],
     subscribers: [],
 })

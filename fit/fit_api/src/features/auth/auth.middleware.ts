@@ -2,6 +2,7 @@ import { NextFunction, Request, Response, } from "express"
 import { User } from "../../database/entities/user.entity"
 import { Jwt } from "../../common/utilities/jwt.utility"
 import { AuthenticatedRequest } from "./auth.request";
+import AuthMapper from "./auth.mapper";
 
 
 export const authMiddleware = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
@@ -9,7 +10,8 @@ export const authMiddleware = async (req: AuthenticatedRequest, res: Response, n
         const { authorization } = req.headers
 
         if (!authorization) {
-            return res.status(401).send({ message: "Unauthorized User!" });
+            const authEndPointResponse = AuthMapper.unauthorizedAccessResponse()
+            return res.send(authEndPointResponse)
         }
 
         const token = authorization.split(' ')[1];
