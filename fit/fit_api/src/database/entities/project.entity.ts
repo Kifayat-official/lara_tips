@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Company } from "./company.entity";
 import { User } from "./user.entity";
 
@@ -15,9 +15,12 @@ export class Project {
     @PrimaryGeneratedColumn()
     id: number
 
-    @ManyToOne(() => User)
-    @JoinColumn()
-    manager: User;
+    // @ManyToOne(() => User)
+    // @JoinColumn()
+    // manager: User;
+
+    @ManyToMany(type => User, user => user.projects)
+    users: User[];
 
     @OneToOne(() => Company)
     @JoinColumn()

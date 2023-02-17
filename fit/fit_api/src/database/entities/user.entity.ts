@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToMany } from "typeorm"
-import { Project } from "./project.entity";
-import { Role } from "./role.entity";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToMany, JoinTable } from "typeorm"
+// import { Project } from "./project.entity";
+// import { Role } from "./role.entity";
 
 @Entity()
 export class User {
@@ -8,18 +8,19 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number
 
-    @ManyToMany(() => Role, role => role.users)
-    roles: Role[];
-    
-    @OneToMany(() => Project, project => project.manager)
-    managedProjects: Project[];
+    // @ManyToMany(() => Role, role => role.users)
+    // roles: Role[];
+
+    // @ManyToMany(type => Project, project => project.users)
+    // @JoinTable()
+    // projects: Project[];
     
     @Column({ type: 'varchar', length: 50 })
     username: string
 
     @Column({ type: 'varchar', length: 150 })
     password: string
-
+    
     @Column({ type: 'varchar', length: 50 })
     first_name: string
 
