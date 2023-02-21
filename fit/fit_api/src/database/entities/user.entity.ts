@@ -1,4 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToMany, JoinTable } from "typeorm"
+import { Project } from "./project.entity";
+import { Role } from "./role.entity";
+import { Team } from "./team.entity";
 // import { Project } from "./project.entity";
 // import { Role } from "./role.entity";
 
@@ -7,14 +10,20 @@ export class User {
 
     @PrimaryGeneratedColumn()
     id: number
-
-    // @ManyToMany(() => Role, role => role.users)
-    // roles: Role[];
-
-    // @ManyToMany(type => Project, project => project.users)
-    // @JoinTable()
-    // projects: Project[];
     
+    @ManyToMany(() => Role, role => role.users)
+    @JoinTable()
+    roles: Role[];
+
+    @OneToMany(() => Project, project => project.adminUser)
+    adminProjects: Project[];
+
+    @OneToMany(() => Project, project => project.manager)
+    managedProjects: Project[];
+
+    @ManyToMany(() => Team, team => team.members)
+    teams: Team[];
+
     @Column({ type: 'varchar', length: 50 })
     username: string
 

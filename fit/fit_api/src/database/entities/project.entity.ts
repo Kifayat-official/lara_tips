@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Company } from "./company.entity";
+import { Team } from "./team.entity";
 import { User } from "./user.entity";
 
 enum ProjectStatus {
@@ -19,8 +20,14 @@ export class Project {
     // @JoinColumn()
     // manager: User;
 
-    @ManyToMany(type => User, user => user.projects)
-    users: User[];
+    @ManyToOne(() => User, user => user.adminProjects)
+    adminUser: User;
+
+    @ManyToOne(() => User, user => user.managedProjects)
+    manager: User;
+
+    @OneToMany(() => Team, team => team.project)
+    teams: Team[];
 
     @OneToOne(() => Company)
     @JoinColumn()
