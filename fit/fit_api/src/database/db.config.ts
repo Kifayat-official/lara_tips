@@ -1,17 +1,17 @@
-import { DataSource } from "typeorm";
 import path, { join } from "path";
 import { User } from "./entities/user.entity";
+import { DataSource } from "typeorm";
 
 const MysqlFitDbDataSource = new DataSource({
     type: "mysql",
-    // host: "128.101.100.12",
-    // port: 3000,
-    // username: "enc_db",
-    // password: "wg3k2#339",
-    host: "localhost",
-    port: 3306,
-    username: "root",
-    password: "",
+    host: "128.101.100.12",
+    port: 3000,
+    username: "enc_db",
+    password: "wg3k2#339",
+    // host: "localhost",
+    // port: 3306,
+    // username: "root",
+    // password: "",
     database: "fit",
     synchronize: true,
     logging: true,
@@ -20,8 +20,8 @@ const MysqlFitDbDataSource = new DataSource({
         join(__dirname, "entities/**/*.ts"), // Include TypeScript entity files
     ],
     //entities: [`${__dirname}\entities\*.ts`],
-    migrations: [],
-    subscribers: [],
+    migrations: ["src/database/migrations/*.ts"],
+    subscribers: []
 })
 
 console.log(join(__dirname, "../../dist/entities/**/*.js"))

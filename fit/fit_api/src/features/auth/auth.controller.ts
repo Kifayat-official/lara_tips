@@ -7,14 +7,16 @@ import { User } from "../../database/entities/user.entity";
 import { Password } from "../../common/utilities/password.utility";
 import AuthMapper from "./auth.mapper";
 import ExceptionMapper from "../../common/exception/exception.mapper";
+import UserController from "../../components/user/user.controller";
 
 export default class AuthController {
 
+    private static userRepo: UserRepo = new UserRepo();
     // User login
     public static async signIn(req: Request, res: Response) {
         try {
             let requestPayload: IUserRequestPayload = req.body as { username, password }
-            let existingUser: User = await UserRepo.getUserByUsername(requestPayload.username)
+            let existingUser: User = await this.userRepo.getUserByUsername(requestPayload.username)
             if (!existingUser) {
                 return await AuthMapper.userDoesNotExistsResponse()
             }
@@ -35,24 +37,22 @@ export default class AuthController {
         }
     }
 
-    // User registrationuserResponse
     public static async signUp(req: Request, res: Response) {
-        let userResponse: IUserResponsePayload
+        let responsePayload: IUserResponsePayload
         let requestPayload: IUserRequestPayload = req.body as IUserRequestPayload
-        try {
-            // check if user already exists
-            userResponse = await UserRepo.getUserByUsername(requestPayload.username)
-            if (userResponse) {
-                return await AuthMapper.userAlreadyExistsResponse()
-            }
 
+        try {
             // user creation
             const user: User = await UserMapper.reqToEntity(requestPayload)
-            const newDbUser: User = await UserRepo.create(user)
-            userResponse = UserMapper.entityToResponse(newDbUser)
-            const signupSuccessResponse = await AuthMapper.signUpSuccessResponse(userResponse)
-            res.send(signupSuccessResponse)
+            const newUser: User = await this.userRepo.createUser(user)
 
+            if (newUser) {
+                responsePayload = UserMapper.entityToResponse(newUser)
+                //const signUpEndPointResponse = await AuthMapper.signUpSuccessEndPointResponse(responsePayload)
+                res.send(responsePayload)
+            }
+
+            res.send(await AuthMapper.userAlreadyExistsResponse())
         } catch (error) {
             console.log(error)
             let exception = ExceptionMapper.errorToResponse("An exception occured while signing up", error)

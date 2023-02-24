@@ -16,10 +16,6 @@ export class Project {
     @PrimaryGeneratedColumn()
     id: number
 
-    // @ManyToOne(() => User)
-    // @JoinColumn()
-    // manager: User;
-
     @ManyToOne(() => User, user => user.adminProjects)
     adminUser: User;
 

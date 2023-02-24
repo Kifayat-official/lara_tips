@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToMany, JoinTable } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToMany, JoinTable, OneToOne, JoinColumn, ManyToOne } from "typeorm"
+import { Company } from "./company.entity";
 import { Project } from "./project.entity";
 import { Role } from "./role.entity";
 import { Team } from "./team.entity";
@@ -35,6 +36,9 @@ export class User {
 
     @Column({ type: 'varchar', length: 50 })
     last_name: string
+
+    @ManyToOne(type => Company, company => company.users)
+    company: Company;
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
     created_at: Date;

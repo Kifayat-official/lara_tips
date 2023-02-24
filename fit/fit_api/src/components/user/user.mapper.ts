@@ -34,13 +34,21 @@ export default class UserMapper {
         return userEndPointResponse
     }
 
-    public static userCreationEndpointResponse(userResponse: IUserResponsePayload) {
+    public static userCreationEndpointResponse(responsePayload: IUserResponsePayload) {
         let userEndPointResponse: IUserEndPointResponse = {
             status: 201,
             message: "User Created Successfully!",
-            data: { result: userResponse }
+            data: { result: responsePayload }
         }
+        return userEndPointResponse
+    }
 
+    public static userAlreadyExistsResponse() {
+        let userEndPointResponse: IUserEndPointResponse = {
+            status: 400,
+            message: "User Already Exists!",
+            data: { result: null }
+        }
         return userEndPointResponse
     }
 

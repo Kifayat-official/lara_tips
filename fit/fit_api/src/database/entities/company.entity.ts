@@ -1,9 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { User } from './user.entity';
 
 @Entity()
 export class Company {
     @PrimaryGeneratedColumn()
     id: number;
+
+    @OneToMany(type => User, user => user.company)
+    users: User[];
 
     @Column()
     name: string;

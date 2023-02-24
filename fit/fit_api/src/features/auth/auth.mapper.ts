@@ -4,10 +4,10 @@ import { IUserResponsePayload } from "../../components/user/user.response";
 import { IAuthResponse } from "./auth.response";
 
 export default class AuthMapper {
-    public static async signUpSuccessResponse(userResponse: IUserResponsePayload) {
+    public static async signUpSuccessEndPointResponse(userResponse: IUserResponsePayload) {
         let signupResponse: IAuthResponse = {
             status: 201,
-            message: "User Created Successfully!",
+            message: "User Registered Successfully!",
             data: { result: userResponse, token: await Jwt.generateJwt(userResponse) }
         }
 

@@ -1,5 +1,6 @@
 import express from "express"
 import MysqlFitDbDataSource from "./database/db.config"
+import { createNewConnection } from "./database/db2.config"
 import { authMiddleware } from "./features/auth/auth.middleware"
 import RootRouter from "./root.routes"
 
@@ -9,38 +10,30 @@ app.use(express.json())
 //app.use(authMiddleware)
 app.use("/api/v1", RootRouter)
 
-MysqlFitDbDataSource.initialize().then(() => {
-    console.log("MySql Db Initialized!")
+let db = null
+const connectToDb = async (dbType: string) => {
+    try {
+        db = await createNewConnection(dbType)
+        db.initialize()
+        console.log("Db connection established!")
+        app.listen(5000, () => {
+            console.log("Server is running on PORT: 5000")
+        })
+    }
+    catch (error) {
+        console.log("Error occured while connecting to database.", error)
+    }
+}
+connectToDb("remote");
 
-    app.listen(5000, () => {
-        console.log("Server is running on PORT: 5000")
-    })
-}).catch(() => {
-    console.log("Error occured while connecting to database.")
-})
+export default db
+// MysqlFitDbDataSource.initialize().then(() => {
+//     console.log("MySql Db Initialized!")
 
+//     app.listen(5000, () => {
+//         console.log("Server is running on PORT: 5000")
+//     })
+// }).catch(() => {
+//     console.log("Error occured while connecting to database.")
+// })
 
-
-//import { MysqlFitDbDataSource, MySqlTestDbDataSource } from "./data-source"
-// import { TestUser } from "./entity/TestUser"
-
-
-// MysqlFitDbDataSource.initialize().then(async () => {
-
-//     console.log("Inserting a new user into the database...")
-//     const user = new TestUser()
-//     user.firstName = "Timber"
-//     user.lastName = "Saw"
-//     //user.age = 25
-//     await MysqlFitDbDataSource.manager.save(user)
-//     console.log("Saved a New user with id: " + user.id)
-
-//     console.log("Loading users from the database...")
-//     const users = await MysqlFitDbDataSource.manager.find(TestUser)
-//     console.log("Loaded users: ", users)
-
-//     console.log("Here you can setup and run express / fastify / any other framework.")
-
-// }).catch(error => console.log(error))
-
-//MySqlTestDbDataSource.initialize()

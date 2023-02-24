@@ -6,17 +6,18 @@ import UserRepo from "./user.repo";
 import { IUserRequestPayload } from "./user.request";
 import { IUserEndPointResponse, IUserResponsePayload } from "./user.response";
 import ExceptionMapper from "../../common/exception/exception.mapper";
-import { DeleteResult } from "typeorm";
+import { DeleteResult, UpdateResult } from "typeorm";
 
 export default class UserController {
 
+    private static userRepo: UserRepo = new UserRepo();
     public static userResponse: IUserResponsePayload
 
     // get single user by id
     public static async getUserById(req: Request, res: Response) {
         try {
             let id: number = Number(req.params.id)
-            let user: User = await UserRepo.getUserById(id)
+            let user: User = await this.userRepo.getUserById(id)
 
             UserController.userResponse = user ? UserMapper.entityToResponse(user) : null
             res.send(UserController.userResponse)
@@ -32,7 +33,7 @@ export default class UserController {
     public static async getUserByUsername(req: Request, res: Response) {
         try {
             let username: string = req.body.username
-            let user: User = await UserRepo.getUserByUsername(username)
+            let user: User = await this.userRepo.getUserByUsername(username)
 
             UserController.userResponse = user ? UserMapper.entityToResponse(user) : null
             res.send(UserController.userResponse)
@@ -48,7 +49,7 @@ export default class UserController {
     public static async all(req: Request, res: Response) {
         try {
             let UserResponseArr: IUserResponsePayload[] =
-                (await UserRepo.all()).map((user) => { return UserMapper.entityToResponse(user) })
+                (await this.userRepo.all()).map((user) => { return UserMapper.entityToResponse(user) })
             res.send(UserResponseArr)
         } catch (error) {
             console.log({ "message": error })
@@ -60,14 +61,19 @@ export default class UserController {
     // Create user
     public static async create(req: Request, res: Response) {
         try {
-            let userResponse: IUserResponsePayload
-            let userEndPointResponse: IUserEndPointResponse
-            let requestPayload: User = req.body
+            let responsePayload: IUserResponsePayload
+            let requestPayload: IUserRequestPayload = req.body as IUserRequestPayload
 
-            requestPayload.password = await Password.hashPassword(requestPayload.password)
-            userResponse = await UserMapper.entityToResponse(await UserRepo.create(requestPayload))
-            userEndPointResponse = UserMapper.userCreationEndpointResponse(userResponse)
-            res.send(userEndPointResponse)
+            const newUserReqToEntity = await UserMapper.reqToEntity(requestPayload)
+            const newUserEntity = await this.userRepo.createUser(newUserReqToEntity)
+
+            if (newUserEntity) {
+                responsePayload = UserMapper.entityToResponse(newUserEntity)
+                const userCreationEndpointResponse = UserMapper.userCreationEndpointResponse(responsePayload)
+                res.send(userCreationEndpointResponse)
+            }
+
+            res.send(UserMapper.userAlreadyExistsResponse())
         } catch (error) {
             console.log({ "message": error })
             let exception = ExceptionMapper.errorToResponse("An exception occured while creating a user", error)
@@ -80,7 +86,7 @@ export default class UserController {
         try {
             const requestPayload: IUserRequestPayload = req.body
             const user: User = await UserMapper.reqToEntity(requestPayload)
-            const updateResult = await UserRepo.update(user)
+            const updateResult = await this.userRepo.updateUser(user) as UpdateResult
             const userEndPointResponse = UserMapper.userUpdateEndpointResponse(updateResult)
             res.send(userEndPointResponse)
         } catch (error) {
@@ -94,7 +100,7 @@ export default class UserController {
     public static async delete(req: Request, res: Response) {
         try {
             const id = Number(req.params.id)
-            const result: DeleteResult = await UserRepo.delete(id)
+            const result: DeleteResult = await this.userRepo.deleteUser(id)
             const userEndPointResponse = UserMapper.userDeleteEndpointResponse(result)
             res.send(userEndPointResponse)
         } catch (error) {
@@ -104,3 +110,5 @@ export default class UserController {
         }
     }
 }
+
+

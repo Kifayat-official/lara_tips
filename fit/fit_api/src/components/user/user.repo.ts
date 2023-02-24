@@ -1,24 +1,80 @@
-import MysqlFitDbDataSource from "../../database/db.config"
+import db from "../.."
 import { User } from "../../database/entities/user.entity"
 
 export default class UserRepo {
 
-    public static async all() {
-        return await MysqlFitDbDataSource.getRepository(User).find()
+    public async all() {
+        //return await this.userRepo.find()
+        try {
+            let users = null
+            users = await db.transaction(async (manager) => {
+                return await manager.find(User)
+            })
+            return users
+        } catch (error) {
+            console.error('Find all users operation failed:', error);
+        }
     }
-    public static async getUserById(id: number) {
-        return await MysqlFitDbDataSource.getRepository(User).findOne({ where: { id: id } })
+    public async getUserById(id: number) {
+        //return await this.userRepo.findOne({ where: { id: id } })
+        try {
+            const user = await db.transaction(async (manager) => {
+                const users = await manager.findOne(User, { where: { id } });
+                return users
+            })
+            return user || null;
+        } catch (error) {
+            console.error('Find user by id operation failed:', error);
+        }
     }
-    public static async getUserByUsername(username: string) {
-        return await MysqlFitDbDataSource.getRepository(User).findOne({ where: { username: username } })
+    public async getUserByUsername(username: string) {
+        //return await this.userRepo.findOne({ where: { username: username } })
+        let user = null
+        try {
+            user = await db.transaction(async (manager) => {
+                return await manager.findOne(User, { where: { username: username } })
+            })
+            return user || null;
+        } catch (error) {
+            console.error('Find user by username operation failed:', error);
+        }
     }
-    public static async create(user: User) {
-        return await MysqlFitDbDataSource.getRepository(User).save(user)
+    public async createUser(user: User) {
+        // return await this.userRepo.save(user)
+        let newUser = null
+        try {
+            // check if user already exists
+            const isUserAlreadyExists = await this.getUserByUsername(user.username)
+            if (isUserAlreadyExists) return null
+
+            newUser = await db.transaction(async (manager) => {
+                return await manager.save(user)
+            })
+            return newUser || null
+        } catch (error) {
+            console.error('Create new user operation failed:', error);
+        }
     }
-    public static async delete(id: number) {
-        return await MysqlFitDbDataSource.getRepository(User).delete(id)
+    public async deleteUser(id: number) {
+        //return await this.userRepo.delete(id)
+        try {
+            const user = await db.transaction(async (manager) => {
+                return await manager.delete(User, id)
+            })
+            return user || null;
+        } catch (error) {
+            console.error('Delete user by id operation failed:', error);
+        }
     }
-    public static async update(updatedUser: User) {
-        return await MysqlFitDbDataSource.getRepository(User).update({ id: updatedUser.id }, updatedUser)
+    public async updateUser(updatedUser: User) {
+        //return await this.userRepo.update({ id: updatedUser.id }, updatedUser)
+        try {
+            const user = await db.transaction(async (manager) => {
+                return await manager.delete(User, updatedUser)
+            })
+            return user || null;
+        } catch (error) {
+            console.error('User update operation failed:', error);
+        }
     }
 }
