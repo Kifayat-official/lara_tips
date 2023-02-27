@@ -4,6 +4,8 @@ import { Company } from "./entities/company.entity";
 import { Permission } from "./entities/permission.entity";
 import { Project } from "./entities/project.entity";
 import { Role } from "./entities/role.entity";
+import { TeamMemberRole } from "./entities/team-member-role.entity";
+import { TeamMember } from "./entities/team-member.entity";
 import { Team } from "./entities/team.entity";
 import { User } from "./entities/user.entity";
 
@@ -34,7 +36,7 @@ export const createNewConnection = (dbConfigName: string) => {
         database: "fit",
         entities: [
             join(__dirname, "../../dist/database/entities/**/*.js"), // Include JavaScript entity files
-            User, Role, Permission, Project, Team, Company, // Include TypeScript entity files
+            User, Role, Permission, Project, Team, TeamMember, TeamMemberRole, Company, // Include TypeScript entity files
         ],
         synchronize: true, // automatically synchronize database schema with the entities
         logging: true,

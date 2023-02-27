@@ -1,4 +1,4 @@
-import db from "../.."
+import dbConnection from "../.."
 import { User } from "../../database/entities/user.entity"
 
 export default class UserRepo {
@@ -7,7 +7,7 @@ export default class UserRepo {
         //return await this.userRepo.find()
         try {
             let users = null
-            users = await db.transaction(async (manager) => {
+            users = await dbConnection(async (manager) => {
                 return await manager.find(User)
             })
             return users
@@ -18,7 +18,7 @@ export default class UserRepo {
     public async getUserById(id: number) {
         //return await this.userRepo.findOne({ where: { id: id } })
         try {
-            const user = await db.transaction(async (manager) => {
+            const user = await dbConnection(async (manager) => {
                 const users = await manager.findOne(User, { where: { id } });
                 return users
             })
@@ -31,7 +31,7 @@ export default class UserRepo {
         //return await this.userRepo.findOne({ where: { username: username } })
         let user = null
         try {
-            user = await db.transaction(async (manager) => {
+            user = await dbConnection(async (manager) => {
                 return await manager.findOne(User, { where: { username: username } })
             })
             return user || null;
@@ -47,7 +47,7 @@ export default class UserRepo {
             const isUserAlreadyExists = await this.getUserByUsername(user.username)
             if (isUserAlreadyExists) return null
 
-            newUser = await db.transaction(async (manager) => {
+            newUser = await dbConnection(async (manager) => {
                 return await manager.save(user)
             })
             return newUser || null
@@ -58,7 +58,7 @@ export default class UserRepo {
     public async deleteUser(id: number) {
         //return await this.userRepo.delete(id)
         try {
-            const user = await db.transaction(async (manager) => {
+            const user = await dbConnection(async (manager) => {
                 return await manager.delete(User, id)
             })
             return user || null;
@@ -69,7 +69,7 @@ export default class UserRepo {
     public async updateUser(updatedUser: User) {
         //return await this.userRepo.update({ id: updatedUser.id }, updatedUser)
         try {
-            const user = await db.transaction(async (manager) => {
+            const user = await dbConnection(async (manager) => {
                 return await manager.delete(User, updatedUser)
             })
             return user || null;

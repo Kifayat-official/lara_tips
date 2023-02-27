@@ -1,5 +1,7 @@
-import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Project } from "./project.entity";
+import { Task } from "./task.entity";
+import { TeamMember } from "./team-member.entity";
 import { User } from "./user.entity";
 
 @Entity()
@@ -7,12 +9,25 @@ export class Team {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    name: string;
+    @OneToMany(type => TeamMember, teamMember => teamMember.team)
+    teamMembers: TeamMember[];
+
+    @OneToMany(() => Task, task => task.assignedTeam)
+    tasks: Task[];
 
     @ManyToOne(() => Project, project => project.teams)
     project: Project;
 
-    @ManyToMany(() => User, user => user.teams)
-    members: User[];
+    // @ManyToMany(() => User, user => user.teams)
+    // members: User[];
+
+    @Column()
+    name: string;
+
+    @Column()
+    dailyTargetDetails: string;
+
+    @Column({ default: false })
+    isActive: boolean;
+
 }

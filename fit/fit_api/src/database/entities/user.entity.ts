@@ -22,7 +22,7 @@ export class User {
     @OneToMany(() => Project, project => project.manager)
     managedProjects: Project[];
 
-    @ManyToMany(() => Team, team => team.members)
+    @ManyToMany(() => Team, team => team.teamMembers)
     teams: Team[];
 
     @Column({ type: 'varchar', length: 50 })
