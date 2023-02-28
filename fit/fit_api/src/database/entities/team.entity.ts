@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Project } from "./project.entity";
-import { Task } from "./task.entity";
+import { Task } from "./tasks/task.entity";
 import { TeamMember } from "./team-member.entity";
 import { User } from "./user.entity";
 
@@ -12,14 +12,11 @@ export class Team {
     @OneToMany(type => TeamMember, teamMember => teamMember.team)
     teamMembers: TeamMember[];
 
-    @OneToMany(() => Task, task => task.assignedTeam)
+    @OneToMany(() => Task, task => task.teams)
     tasks: Task[];
 
     @ManyToOne(() => Project, project => project.teams)
     project: Project;
-
-    // @ManyToMany(() => User, user => user.teams)
-    // members: User[];
 
     @Column()
     name: string;
@@ -29,5 +26,4 @@ export class Team {
 
     @Column({ default: false })
     isActive: boolean;
-
 }

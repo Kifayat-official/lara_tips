@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Company } from "./company.entity";
+import { Task } from "./tasks/task.entity";
 import { Team } from "./team.entity";
 import { User } from "./user.entity";
 
@@ -24,6 +25,9 @@ export class Project {
 
     @OneToMany(() => Team, team => team.project)
     teams: Team[];
+
+    @OneToMany(() => Task, task => task.project)
+    tasks: Task[];
 
     @OneToOne(() => Company)
     @JoinColumn()
