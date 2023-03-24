@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Project } from "./project.entity";
-import { Task } from "./tasks/task.entity";
+import { Task } from "./task.entity";
 import { TeamMember } from "./team-member.entity";
 import { User } from "./user.entity";
 

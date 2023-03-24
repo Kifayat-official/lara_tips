@@ -1,6 +1,6 @@
 import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Project } from "../project.entity";
-import { Team } from "../team.entity";
+import { Project } from "./project.entity";
+import { Team } from "./team.entity";
 
 @Entity()
 export class Task {
@@ -17,15 +17,19 @@ export class Task {
     @ManyToOne(() => Project, project => project.tasks)
     project: Project;
 
-    @Column()
-    name: string;
+    // entity 
+    @Column({ type: 'json' })
+    details: Record<string, any>;
 
-    @Column()
-    description: string;
+    // @Column()
+    // name: string;
 
-    @Column()
-    deadline: Date;
+    // @Column()
+    // description: string;
 
-    @Column()
-    status: string;
+    // @Column()
+    // deadline: Date;
+
+    // @Column()
+    // status: string;
 }

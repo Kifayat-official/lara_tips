@@ -1,5 +1,5 @@
 import { Column, Entity } from "typeorm";
-import { Task } from "./task.entity";
+import { Task } from "../task.entity";
 
 @Entity()
 export class MeterReadingTask extends Task {
