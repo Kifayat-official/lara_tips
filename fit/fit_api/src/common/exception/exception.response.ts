@@ -1,5 +1,8 @@
 export interface IExceptionResponse {
-    status: number,
-    message: string,
-    data: any
+    status?: number,
+    error?: string,
+    data?: any,
+    errorMessage: string,
+    errorCode: number,
+    timestamp: Date
 }

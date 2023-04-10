@@ -39,6 +39,7 @@ export default class UserRepo {
             console.error('Find user by username operation failed:', error);
         }
     }
+
     public async createUser(user: User) {
         // return await this.userRepo.save(user)
         let newUser = null
@@ -47,16 +48,21 @@ export default class UserRepo {
             const isUserAlreadyExists = await this.getUserByUsername(user.username)
             if (isUserAlreadyExists) return null
 
-            newUser = await dbConnection(async (manager) => {
-                return await manager.save(user)
+            console.log("User: ", user)
+            newUser = await dbConnection.manager.transaction(async (transactionalEntityManager) => {
+                return await transactionalEntityManager.save(user)
             })
+
+            // newUser = await dbConnection(async (manager) => {
+            //     return await manager.save(user)
+            // })
             return newUser || null
         } catch (error) {
             console.error('Create new user operation failed:', error);
         }
     }
+
     public async deleteUser(id: number) {
-        //return await this.userRepo.delete(id)
         try {
             const user = await dbConnection(async (manager) => {
                 return await manager.delete(User, id)
@@ -67,7 +73,6 @@ export default class UserRepo {
         }
     }
     public async updateUser(updatedUser: User) {
-        //return await this.userRepo.update({ id: updatedUser.id }, updatedUser)
         try {
             const user = await dbConnection(async (manager) => {
                 return await manager.delete(User, updatedUser)

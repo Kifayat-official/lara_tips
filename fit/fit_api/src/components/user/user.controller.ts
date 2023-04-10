@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import { User } from "../../database/entities/user.entity";
-import { Password } from "../../common/utilities/password.utility";
 import UserMapper from "./user.mapper";
 import UserRepo from "./user.repo";
 import { IUserRequestPayload } from "./user.request";
-import { IUserEndPointResponse, IUserResponsePayload } from "./user.response";
+import { IUserResponsePayload } from "./user.response";
 import ExceptionMapper from "../../common/exception/exception.mapper";
 import { DeleteResult, UpdateResult } from "typeorm";
+import ExceptionResponse from "../../common/exception/exception.mapper";
 
 export default class UserController {
 
@@ -24,8 +24,7 @@ export default class UserController {
         }
         catch (error) {
             console.log({ "message": error })
-            let exception = ExceptionMapper.errorToResponse("An exception occured while getting user by it's ID", error)
-            res.send(exception)
+            res.send(new ExceptionResponse("An exception occured while fetching a user by it's ID", 500, new Date()))
         }
     }
 
@@ -40,8 +39,7 @@ export default class UserController {
         }
         catch (error) {
             console.log({ "message": error })
-            let exception = ExceptionMapper.errorToResponse("An exception occured while getting user by it's username", error)
-            res.send(exception)
+            res.send(new ExceptionResponse("An exception occured while fetching a user by it's username", 500, new Date()))
         }
     }
 
@@ -53,8 +51,7 @@ export default class UserController {
             res.send(UserResponseArr)
         } catch (error) {
             console.log({ "message": error })
-            let exception = ExceptionMapper.errorToResponse("An exception occured while fetching all users", error)
-            res.send(exception)
+            res.send(new ExceptionResponse("An exception occured while fetching a user", 500, new Date()))
         }
     }
 
@@ -63,7 +60,7 @@ export default class UserController {
         try {
             let responsePayload: IUserResponsePayload
             let requestPayload: IUserRequestPayload = req.body as IUserRequestPayload
-
+            console.log("requestPayload: ", requestPayload)
             const newUserReqToEntity = await UserMapper.reqToEntity(requestPayload)
             const newUserEntity = await this.userRepo.createUser(newUserReqToEntity)
 
@@ -76,8 +73,7 @@ export default class UserController {
             res.send(UserMapper.userAlreadyExistsResponse())
         } catch (error) {
             console.log({ "message": error })
-            let exception = ExceptionMapper.errorToResponse("An exception occured while creating a user", error)
-            res.send(exception)
+            res.send(new ExceptionResponse("An exception occured while creating a user", 500, new Date()))
         }
     }
 
@@ -91,8 +87,7 @@ export default class UserController {
             res.send(userEndPointResponse)
         } catch (error) {
             console.log({ "message": error })
-            let exception = ExceptionMapper.errorToResponse("An exception occured while updating a user", error)
-            res.send(exception)
+            res.send(new ExceptionResponse("An exception occured while updating a user", 500, new Date()))
         }
     }
 
@@ -105,8 +100,7 @@ export default class UserController {
             res.send(userEndPointResponse)
         } catch (error) {
             console.log({ "message": error })
-            const exception = ExceptionMapper.errorToResponse("An exception occured while deleting a user", error)
-            res.send(exception)
+            res.send(new ExceptionResponse("An exception occured while deleting a user", 500, new Date()))
         }
     }
 }

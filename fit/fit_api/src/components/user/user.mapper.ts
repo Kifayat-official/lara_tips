@@ -6,6 +6,7 @@ import { DeleteResult, UpdateResult } from "typeorm";
 
 export default class UserMapper {
     public static async reqToEntity(requestPayload: IUserRequestPayload) {
+        console.log("requestPayload: ", requestPayload)
         let user: User = new User()
         user.username = requestPayload.username
         user.password = await Password.hashPassword(requestPayload.password)

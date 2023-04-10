@@ -14,7 +14,9 @@ let dbConnection = null
 const connectToDb = async (dbType: string) => {
     try {
         dbConnection = await createNewConnection(dbType)
-        dbConnection.initialize()
+        // dbConnection.initialize()
+        // dbConnection.connect()
+
         console.log("Db connection established!")
         app.listen(5000, () => {
             console.log("Server is running on PORT: 5000")
