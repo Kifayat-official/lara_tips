@@ -8,6 +8,7 @@ import { Password } from "../../common/utilities/password.utility";
 import AuthMapper from "./auth.mapper";
 import ExceptionMapper from "../../common/exception/exception.mapper";
 import UserController from "../../components/user/user.controller";
+import ExceptionResponse from "../../common/exception/exception.mapper";
 
 export default class AuthController {
 
@@ -31,9 +32,7 @@ export default class AuthController {
         }
         catch (error) {
             console.log(error)
-
-            let exception = ExceptionMapper.errorToResponse("An exception occured while logging in", error)
-            res.send(exception)
+            res.send(new ExceptionResponse("An exception occured while signing-in a user", 500))
         }
     }
 
@@ -55,8 +54,7 @@ export default class AuthController {
             res.send(await AuthMapper.userAlreadyExistsResponse())
         } catch (error) {
             console.log(error)
-            let exception = ExceptionMapper.errorToResponse("An exception occured while signing up", error)
-            res.send(exception)
+            res.send(new ExceptionResponse("An exception occured while signing-up a user", 500))
         }
     }
 }

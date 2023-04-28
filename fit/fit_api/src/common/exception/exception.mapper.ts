@@ -15,6 +15,6 @@ export default class ExceptionResponse implements IExceptionResponse {
     constructor(
         public errorMessage: string,
         public errorCode: number,
-        public timestamp: Date
+        public timestamp: Date = new Date()
     ) { }
 }

@@ -10,57 +10,63 @@ import ExceptionResponse from "../../common/exception/exception.mapper";
 
 export default class UserController {
 
-    private static userRepo: UserRepo = new UserRepo();
-    public static userResponse: IUserResponsePayload
+    //private userRepo: UserRepo = new UserRepo();
+    //public static userResponse: IUserResponsePayload
+    private userResponse: IUserResponsePayload
+    constructor(
+        private userRepo: UserRepo
+    ) {
+        this.userRepo = userRepo
+    }
 
     // get single user by id
-    public static async getUserById(req: Request, res: Response) {
+    public async getUserById(req: Request, res: Response) {
         try {
             let id: number = Number(req.params.id)
             let user: User = await this.userRepo.getUserById(id)
 
-            UserController.userResponse = user ? UserMapper.entityToResponse(user) : null
-            res.send(UserController.userResponse)
+            this.userResponse = user ? UserMapper.entityToResponse(user) : null
+            res.send(this.userResponse)
         }
         catch (error) {
             console.log({ "message": error })
-            res.send(new ExceptionResponse("An exception occured while fetching a user by it's ID", 500, new Date()))
+            res.send(new ExceptionResponse("An exception occured while fetching a user by it's ID", 500))
         }
     }
 
     // Get single user by username
-    public static async getUserByUsername(req: Request, res: Response) {
+    public async getUserByUsername(req: Request, res: Response) {
         try {
             let username: string = req.body.username
             let user: User = await this.userRepo.getUserByUsername(username)
 
-            UserController.userResponse = user ? UserMapper.entityToResponse(user) : null
-            res.send(UserController.userResponse)
+            this.userResponse = user ? UserMapper.entityToResponse(user) : null
+            res.send(this.userResponse)
         }
         catch (error) {
             console.log({ "message": error })
-            res.send(new ExceptionResponse("An exception occured while fetching a user by it's username", 500, new Date()))
+            res.send(new ExceptionResponse("An exception occured while fetching a user by it's username", 500))
         }
     }
 
     // Get all users
-    public static async all(req: Request, res: Response) {
+    public async all(req: Request, res: Response) {
         try {
             let UserResponseArr: IUserResponsePayload[] =
                 (await this.userRepo.all()).map((user) => { return UserMapper.entityToResponse(user) })
             res.send(UserResponseArr)
         } catch (error) {
             console.log({ "message": error })
-            res.send(new ExceptionResponse("An exception occured while fetching a user", 500, new Date()))
+            res.send(new ExceptionResponse("An exception occured while fetching a user", 500))
         }
     }
 
     // Create user
-    public static async create(req: Request, res: Response) {
+    public async create(req: Request, res: Response) {
         try {
             let responsePayload: IUserResponsePayload
             let requestPayload: IUserRequestPayload = req.body as IUserRequestPayload
-            console.log("requestPayload: ", requestPayload)
+
             const newUserReqToEntity = await UserMapper.reqToEntity(requestPayload)
             const newUserEntity = await this.userRepo.createUser(newUserReqToEntity)
 
@@ -73,12 +79,12 @@ export default class UserController {
             res.send(UserMapper.userAlreadyExistsResponse())
         } catch (error) {
             console.log({ "message": error })
-            res.send(new ExceptionResponse("An exception occured while creating a user", 500, new Date()))
+            res.send(new ExceptionResponse("An exception occured while creating a user", 500))
         }
     }
 
     // Update user
-    public static async update(req: Request, res: Response) {
+    public async update(req: Request, res: Response) {
         try {
             const requestPayload: IUserRequestPayload = req.body
             const user: User = await UserMapper.reqToEntity(requestPayload)
@@ -87,12 +93,12 @@ export default class UserController {
             res.send(userEndPointResponse)
         } catch (error) {
             console.log({ "message": error })
-            res.send(new ExceptionResponse("An exception occured while updating a user", 500, new Date()))
+            res.send(new ExceptionResponse("An exception occured while updating a user", 500))
         }
     }
 
     // Delete user
-    public static async delete(req: Request, res: Response) {
+    public async delete(req: Request, res: Response) {
         try {
             const id = Number(req.params.id)
             const result: DeleteResult = await this.userRepo.deleteUser(id)
@@ -100,7 +106,7 @@ export default class UserController {
             res.send(userEndPointResponse)
         } catch (error) {
             console.log({ "message": error })
-            res.send(new ExceptionResponse("An exception occured while deleting a user", 500, new Date()))
+            res.send(new ExceptionResponse("An exception occured while deleting a user", 500))
         }
     }
 }
