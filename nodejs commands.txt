@@ -5,8 +5,12 @@
 4. npm i -D ts-node-dev
 	=> ts-node is used to run TypeScript code directly without first compiling them to JavaScript, while ts-node-dev adds hot-reloading functionality to ts-node.
 	=> nodemon can also be used to auto-restart server upon changes in *.ts files.
-5. npm i express
+5. npm i express --save
 6. npm i -D @types/express
+7. npm i sqlite3 --save
+
+Extra:
+Add "emitDecoratorMetadata": true in tsconfig.json
 
 Lessons:
 1. After installing typescript you can use tsc (stands for TypeScript Compiler)
