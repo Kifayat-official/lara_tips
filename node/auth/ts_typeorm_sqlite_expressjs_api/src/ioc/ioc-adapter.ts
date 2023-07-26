@@ -1,4 +1,3 @@
-// ioc/TSyringeAdapter.ts
 import { DependencyContainer, inject, injectable, InjectionToken } from 'tsyringe';
 import { IocAdapter } from 'routing-controllers';
 

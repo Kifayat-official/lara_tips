@@ -1,7 +1,7 @@
 import { DependencyContainer, container as tsyringeContainer } from 'tsyringe';
-import { IUserRepository } from '../repositories/user/IUserRepository';
-import { UserRepository } from '../repositories/user/UserRepository';
-import { TSyringeAdapter } from './iocAdapter';
+import { IUserRepository } from '../repositories/user/iuser-repository';
+import { UserRepository } from '../repositories/user/user-repository';
+import { TSyringeAdapter } from './ioc-adapter';
 
 // Bind the implementations to the interfaces using the container
 tsyringeContainer.register<IUserRepository>('IUserRepository', { useClass: UserRepository });

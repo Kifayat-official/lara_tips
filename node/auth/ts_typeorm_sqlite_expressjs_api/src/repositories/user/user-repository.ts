@@ -1,10 +1,9 @@
 import { Repository } from 'typeorm';
-import { User } from '../../entities/User';
-import { AppDataSource } from '../../data-source';
-import { IUserRepository } from './IUserRepository';
-import { Service } from 'typedi';
+import { User } from '../../entities/user';
+import { IUserRepository } from './iuser-repository';
 
 import { injectable } from 'tsyringe';
+import { AppDataSource } from '../../data_source';
 
 @injectable()
 class UserRepository implements IUserRepository {

@@ -1,7 +1,7 @@
 
 import { JsonController, Get, Post, Body } from 'routing-controllers';
-import { IUserRepository } from '../repositories/user/IUserRepository';
-import { User } from '../entities/User';
+import { IUserRepository } from '../repositories/user/iuser-repository';
+import { User } from '../entities/user';
 import { autoInjectable, inject, injectable } from 'tsyringe';
 
 @injectable()

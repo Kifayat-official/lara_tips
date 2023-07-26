@@ -1,6 +1,7 @@
+import 'reflect-metadata';
 import { createExpressServer, useContainer } from 'routing-controllers';
-import { AppDataSource } from './data-source';
 import { tsyringeAdapter } from './ioc/container';
+import { AppDataSource } from './data_source';
 
 const port = process.env.PORT || 3000;
 useContainer(tsyringeAdapter);
@@ -17,7 +18,7 @@ useContainer(tsyringeAdapter);
         const app = createExpressServer(routingControllersOptions)
 
         app.listen(port, () => {
-            console.log(`Server is listening on port ${port}`);
+            console.log(`http://localhost:${port}`);
         });
 
     } catch (err) {
