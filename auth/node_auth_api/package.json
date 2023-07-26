@@ -1,0 +1,24 @@
+{
+   "name": "pitc_auth_api",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "type": "commonjs",
+   "dependencies": {
+      "express": "^4.18.2",
+      "reflect-metadata": "^0.1.13",
+      "routing-controllers": "^0.10.4",
+      "sqlite3": "^5.1.6",
+      "tsyringe": "^4.8.0",
+      "typeorm": "^0.3.17"
+   },
+   "scripts": {
+      "start": "ts-node-dev src/server.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+   },
+   "devDependencies": {
+      "@types/express": "^4.17.17",
+      "@types/node": "^20.4.4",
+      "ts-node-dev": "^2.0.0",
+      "typescript": "^5.1.6"
+   }
+}
