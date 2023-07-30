@@ -2,7 +2,7 @@
 import { JsonController, Get, Post, Body } from 'routing-controllers';
 import { IUserRepository } from '../repositories/user/iuser-repository';
 import { User } from '../entities/user';
-import { autoInjectable, inject, injectable } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 
 @injectable()
 @JsonController('/users')
