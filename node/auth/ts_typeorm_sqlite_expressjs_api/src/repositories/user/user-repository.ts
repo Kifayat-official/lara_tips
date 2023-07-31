@@ -1,19 +1,23 @@
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { IUserRepository } from './iuser-repository';
 import { injectable } from 'tsyringe';
-import { AppDataSource } from '../../data_source';
 import { User } from '../../entities/user';
+import { Req } from 'routing-controllers';
+import { Request } from 'express';
 
 @injectable()
 class UserRepository implements IUserRepository {
-    private userRepository: Repository<User>;
+    private user: Repository<User>;
+    private req: Request;
+    //constructor(@inject('UserRepository') private user: Repository<User>) {}
 
     constructor() {
-        this.userRepository = AppDataSource.getRepository(User)
+        const dataSource: DataSource = this.req.app.locals.data_source;
+        this.user = dataSource.getRepository(User);
     }
 
     public async getAllUsers(): Promise<User[]> {
-        return this.userRepository.find();
+        return this.user.find()
     }
 
     // async getUserById(id: number): Promise<User | undefined> {
@@ -21,7 +25,7 @@ class UserRepository implements IUserRepository {
     // }
 
     public async createUser(user: User): Promise<User> {
-        return this.userRepository.save(user);
+        return this.user.save(user)
     }
 
     // public async updateUser(id: number, updatedUser: User): Promise<User | undefined> {

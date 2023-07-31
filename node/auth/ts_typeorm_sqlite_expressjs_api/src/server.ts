@@ -1,7 +1,10 @@
 import 'reflect-metadata';
 import { createExpressServer, useContainer } from 'routing-controllers';
 import { tsyringeAdapter } from './ioc/container';
-import { AppDataSource } from './data_source';
+import { MySqlDataSource, SqliteDataSource } from './config/data_source';
+import { selectDatasourceMiddleware } from './middlewares/select-datasource';
+
+
 
 const port = process.env.PORT || 3000;
 useContainer(tsyringeAdapter);
@@ -9,21 +12,23 @@ useContainer(tsyringeAdapter);
 (async () => {
     try {
 
-        await AppDataSource.initialize();
+        await MySqlDataSource.initialize()
+        await SqliteDataSource.initialize();
 
-        const routingControllersOptions = {
+        const app = createExpressServer({
             controllers: [`${__dirname}/controllers/*.ts`],
-        };
+        });
 
-        const app = createExpressServer(routingControllersOptions)
+        app.use(selectDatasourceMiddleware);
+        
 
         app.listen(port, () => {
             console.log(`http://localhost:${port}`);
         });
 
+        
     } catch (err) {
         console.error(err)
     }
 
 })()
-
