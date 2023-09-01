@@ -1,0 +1,100 @@
+barryvdh/laravel-dompdf        barryvdh/laravel-snappy
+beyondcode/laravel-er-diagram-generator
+dompdf/dompdf
+erusev/parsedown
+guzzlehttp/guzzle      guzzlehttp/promises     guzzlehttp/psr7
+jakub-onderka/php-console-color     jakub-onderka/php-console-highlighter     
+jeroennoten/laravel-adminlte
+knplabs/knp-snappy
+laravelcollective/html
+lukascivil/treewalker
+maatwebsite/excel
+markbaker/complex      markbaker/matrix
+phenx/php-font-lib      phenx/php-svg-lib
+phpdocumentor/graphviz      phpdocumentor/reflection-common      phpdocumentor/reflection-docblock      phpdocumentor/type-resolver
+phpoffice/phpspreadsheet
+phpspec/prophecy
+ralouphie/getallheaders
+sabberworm/php-css-parser
+webmozart/assert
+webpatser/uuid
+yajra/laravel-datatables      yajra/laravel-datatables-buttons      yajra/laravel-datatables-editor      yajra/laravel-datatables-fractal      yajra/laravel-datatables-html      yajra/laravel-datatables-oracle     
+
+
+
+composer require \
+    barryvdh/laravel-dompdf \
+    barryvdh/laravel-snappy \
+    beyondcode/laravel-er-diagram-generator \
+    dompdf/dompdf \
+    erusev/parsedown \
+    guzzlehttp/guzzle \
+    jakub-onderka/php-console-color \
+    jakub-onderka/php-console-highlighter \
+    jeroennoten/laravel-adminlte:* \
+    knplabs/knp-snappy \
+    laravelcollective/html \
+    lukascivil/treewalker \
+    maatwebsite/excel \
+    markbaker/complex:* \
+    markbaker/matrix:* \
+    phenx/php-font-lib \
+    phenx/php-svg-lib \
+    phpdocumentor/graphviz \
+    phpdocumentor/reflection-docblock \
+    phpdocumentor/type-resolver \
+    phpoffice/phpspreadsheet \
+    phpspec/prophecy \
+    ralouphie/getallheaders \
+    sabberworm/php-css-parser \
+    webmozart/assert \
+    webpatser/laravel-uuid \
+    yajra/laravel-datatables \
+    yajra/laravel-datatables-buttons \
+    yajra/laravel-datatables-editor \
+    yajra/laravel-datatables-fractal \
+    yajra/laravel-datatables-html \
+    yajra/laravel-datatables-oracle \
+    --dev \
+    guzzlehttp/promises \
+    guzzlehttp/psr7
+	phpdocumentor/reflection-common \
+	
+	
+	
+
+composer require barryvdh/laravel-dompdf
+composer require barryvdh/laravel-snappy
+composer require beyondcode/laravel-er-diagram-generator
+composer require dompdf/dompdf
+composer require erusev/parsedown
+composer require guzzlehttp/guzzle
+composer require jakub-onderka/php-console-color
+composer require jakub-onderka/php-console-highlighter
+composer require jeroennoten/laravel-adminlte:*
+composer require knplabs/knp-snappy
+composer require laravelcollective/html
+composer require lukascivil/treewalker
+composer require maatwebsite/excel
+composer require markbaker/complex:*
+composer require markbaker/matrix:*
+composer require phenx/php-font-lib
+composer require phenx/php-svg-lib
+composer require phpdocumentor/graphviz
+composer require phpdocumentor/reflection-docblock
+composer require phpdocumentor/type-resolver
+composer require phpoffice/phpspreadsheet
+composer require phpspec/prophecy
+composer require ralouphie/getallheaders
+composer require sabberworm/php-css-parser
+composer require webmozart/assert
+composer require webpatser/laravel-uuid
+composer require yajra/laravel-datatables
+composer require yajra/laravel-datatables-buttons
+composer require yajra/laravel-datatables-editor
+composer require yajra/laravel-datatables-fractal
+composer require yajra/laravel-datatables-html
+composer require yajra/laravel-datatables-oracle
+composer require --dev guzzlehttp/promises
+composer require --dev guzzlehttp/psr7
+composer require --dev phpdocumentor/reflection-common
