@@ -1,7 +1,0 @@
-8ZEt48D&fy45
-
-https://fullstacksoup.blog/2021/09/17/node-js-api-jwt-authentication-with-sqlite-database/
-https://www.youtube.com/watch?v=WfCJ3sHnLBM&list=PLtYTVIzWW8XEGCo-sAot0hgZH9Z9OSWvR&index=2&ab_channel=TechnicalBabaji
-https://www.sqlitetutorial.net/sqlite-nodejs/statements-control-flow/
-
-auto close sqlite3 nodejs connectin

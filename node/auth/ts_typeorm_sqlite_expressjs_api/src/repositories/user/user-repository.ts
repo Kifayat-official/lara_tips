@@ -1,10 +1,15 @@
 import { Repository } from 'typeorm';
-import { User } from '../../entities/user';
 import { IUserRepository } from './iuser-repository';
+<<<<<<< HEAD
 import { inject, injectable } from 'tsyringe';
 import { Req } from 'routing-controllers';
 import { Request } from 'express';
 import { AppDataSource } from '../../middlewares/select-datasource';
+=======
+import { injectable } from 'tsyringe';
+import { AppDataSource } from '../../data_source';
+import { User } from '../../entities/user';
+>>>>>>> 44e4a633d152ca1fad95db8e7f83be42f95b35ee
 
 @injectable()
 class UserRepository implements IUserRepository {
