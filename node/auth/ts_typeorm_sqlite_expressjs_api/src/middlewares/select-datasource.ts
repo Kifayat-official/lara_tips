@@ -1,5 +1,5 @@
 import { Response, NextFunction, Request } from 'express';
-import { SUPPORTED_DATA_SOURCES, SqliteDataSource } from '../config/data_source';
+import { SUPPORTED_DATA_SOURCES, SqliteDataSource } from '../config/database/data_source';
 import CustomRequest from '../interfaces/custom-request';
 import { DataSource } from 'typeorm';
 
