@@ -1,24 +1,32 @@
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { IUserRepository } from './iuser-repository';
+<<<<<<< HEAD
 <<<<<<< HEAD
 import { inject, injectable } from 'tsyringe';
 import { Req } from 'routing-controllers';
 import { Request } from 'express';
 import { AppDataSource } from '../../middlewares/select-datasource';
 =======
+=======
+>>>>>>> 16328190c028bafba53ffe9474ea398d997448dd
 import { injectable } from 'tsyringe';
-import { AppDataSource } from '../../data_source';
 import { User } from '../../entities/user';
+<<<<<<< HEAD
 >>>>>>> 44e4a633d152ca1fad95db8e7f83be42f95b35ee
+=======
+import { Req } from 'routing-controllers';
+import { Request } from 'express';
+>>>>>>> 16328190c028bafba53ffe9474ea398d997448dd
 
 @injectable()
 class UserRepository implements IUserRepository {
     private user: Repository<User>;
-
+    private req: Request;
     //constructor(@inject('UserRepository') private user: Repository<User>) {}
 
     constructor() {
-        this.user = AppDataSource.getRepository(User)
+        const dataSource: DataSource = this.req.app.locals.data_source;
+        this.user = dataSource.getRepository(User);
     }
 
     public async getAllUsers(): Promise<User[]> {

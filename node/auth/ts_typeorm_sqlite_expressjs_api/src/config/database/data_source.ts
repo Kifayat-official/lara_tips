@@ -1,6 +1,6 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { User } from "../entities/user"
+import { User } from "../../entities/user"
 
 
 
@@ -25,9 +25,9 @@ const SqliteDataSource = new DataSource({
 })
 
 // Map of supported data sources
-const SUPPORTED_DATA_SOURCES: Record<string, any> = {
+const SUPPORTED_DATA_SOURCES: Record<string, DataSource> = {
     'sqlite': SqliteDataSource,
     'mysql': MySqlDataSource,
-  };
+};
 
-export {SUPPORTED_DATA_SOURCES, MySqlDataSource, SqliteDataSource}
+export { SUPPORTED_DATA_SOURCES, MySqlDataSource, SqliteDataSource }
