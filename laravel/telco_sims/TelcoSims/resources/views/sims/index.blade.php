@@ -10,11 +10,35 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('import') }}" enctype="multipart/form-data">
+
+    {{-- <form method="POST" action="{{ url('import') }}" enctype="multipart/form-data" id="upload-form">
         @csrf
-        <input type="file" name="csv_file">
-        <button type="submit">Import CSV</button>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="csv_file" id="csv_file">
+            <label class="custom-file-label" for="csv_file">Choose file</label>
+        </div>
+        <button type="button" class="btn btn-primary mt-3" id="submit-btn" disabled>Import CSV</button>
+    </form> --}}
+
+    <form method="POST" action="{{ url('import') }}" enctype="multipart/form-data" id="upload-form">
+        @csrf
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="csv_file" id="csv_file" required>
+            <label class="custom-file-label" for="csv_file">Choose file</label>
+        </div>
+        <button type="button" class="btn btn-primary mt-3" id="submit-btn" disabled>
+            <span id="submit-btn-content">Import CSV</span>
+            <div id="submit-btn-spinner" style="display: none;">
+                <div class="spinner-border spinner-border-sm" role="status"></div>
+                <span class="sr-only">Loading...</span>
+            </div>
+        </button>
+        <div class="invalid-feedback">Please attach a CSV file.</div>
     </form>
+    <div id="res-msg" class="alert alert-success d-none">
+        <p id="res-msg-txt"></p>
+    </div>
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -60,4 +84,64 @@
         @endforeach
     </table>
     {!! $sims->links() !!}
+@endsection
+
+@section('footer-libs')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('#csv_file').change(function() {
+                var fileInput = $(this);
+                var submitButton = $('#submit-btn');
+
+                if (fileInput[0].files.length > 0) {
+                    submitButton.prop('disabled', false);
+                } else {
+                    submitButton.prop('disabled', true);
+                }
+            });
+
+            $('#submit-btn').click(function() {
+                var submitBtnContent = $('#submit-btn-content')
+                var submitBtnSpinner = $('#submit-btn-spinner')
+                var resMsgDiv = $('#res-msg')
+                var resMsgTxt = $('#res-msg-txt')
+
+                submitBtnContent.hide()
+                submitBtnSpinner.show()
+
+                var formData = new FormData($('#upload-form')[0])
+
+                $.ajax({
+                    url: "{{ url('import') }}",
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(data) {
+                        submitBtnContent.show();
+                        submitBtnSpinner.hide();
+
+                        resMsgTxt.text(data.message);
+                        resMsgDiv.removeClass("d-none");
+
+                        setTimeout(function() {
+                            resMsgDiv.addClass("d-none");
+                        }, 5000);
+                    },
+                    error: function(error) {
+                        submitBtnContent.show();
+                        submitBtnSpinner.hide();
+                    }
+                });
+            });
+
+
+        });
+    </script>
 @endsection

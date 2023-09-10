@@ -125,14 +125,14 @@ class SimController extends Controller
                     $batch->add(new CsvImportJob($data));
                 }
 
-                return redirect()->back()->with('success', "{$rowCount} records imported successfully");
+                // return redirect()->back()->with('success', "{$rowCount} records imported successfully");
 
                 // return $batch;
 
-                // return response()->json([
-                //     'total_records_imported' => $rowCount,
-                //     'message' => "{$rowCount} records imported successfully"
-                // ], 200);
+                return response()->json([
+                    'total_records_imported' => $rowCount,
+                    'message' => "{$rowCount} records imported successfully"
+                ], 200);
             }
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Failed during batching in SimController: ' . $e->getMessage());
