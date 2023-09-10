@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 
 Route::resource('sims', SimController::class)->middleware('auth');
 Route::post('import', [SimController::class, 'import'])->middleware('auth');
+Route::get('import/progress', [SimController::class, 'import_progress'])->middleware('auth');
 
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/', 'login')->name('login');
@@ -24,5 +25,6 @@ Route::controller(LoginRegisterController::class)->group(function () {
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
     Route::post('/authenticate', 'authenticate')->name('authenticate');
-    Route::post('/logout', 'logout')->name('logout')->middleware('auth');;
+    Route::post('/logout', 'logout')->name('logout')->middleware('auth');
+    ;
 });

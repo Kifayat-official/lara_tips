@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sim;
-use App\Helpers\Utils;
 use App\Jobs\CsvImportJob;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Log;
 
 class SimController extends Controller
@@ -92,7 +92,83 @@ class SimController extends Controller
         return view('csv.import');
     }
 
-    public function import(Request $request)
+    public function import()
+    {
+        try {
+            request()->validate([
+                'csv_file' => 'required|mimes:csv',
+            ]);
+            // 'csv_file' => 'required|mimetypes:text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+
+            if (request()->has('csv_file')) {
+                $data = file(request()->csv_file);
+                $data = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $data);
+
+                // Chunking file
+                $chunks = array_chunk($data, 1000);
+                $rowCount = 0;
+
+                $batch = Bus::batch([])->dispatch();
+
+                foreach ($chunks as $key => $chunk) {
+                    $data = array_map('str_getcsv', $chunk);
+
+                    if ($key === 0) {
+                        unset($data[0]);
+                    }
+
+                    // Update row count
+                    $rowCount += count($data);
+
+                    //CsvImportJob::dispatch($data);
+
+                    $batch->add(new CsvImportJob($data));
+                }
+
+                return redirect()->back()->with('success', "{$rowCount} records imported successfully");
+
+                // return $batch;
+
+                // return response()->json([
+                //     'total_records_imported' => $rowCount,
+                //     'message' => "{$rowCount} records imported successfully"
+                // ], 200);
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed during batching in SimController: ' . $e->getMessage());
+        }
+    }
+
+    public function import_progress()
+    {
+        $batchId = request('id');
+        return Bus::findBatch($batchId);
+    }
+
+    public function import2(Request $request)
+    {
+        $request->validate([
+            'csv_file' => 'required|mimes:csv',
+        ]);
+        if ($request->hasFile('csv_file')) {
+            $data = file($request->csv_file);
+            $header = $data[0];
+            unset($data[0]);
+
+            // chunking file
+            $chunks = array_chunk($data, 1000);
+
+            // convert each chunk into new csv file
+            foreach ($chunks as $key => $chunk) {
+                $name = "/temp{$key}.csv";
+                $path = resource_path("temp");
+                file_put_contents($path . $name, $chunk);
+            }
+
+
+        }
+    }
+    public function import1(Request $request)
     {
         $request->validate([
             'csv_file' => 'required|mimes:csv',
@@ -108,25 +184,4 @@ class SimController extends Controller
         }
         return redirect()->back()->with('error', 'Failed to import CSV file.');
     }
-
-    // public function import(Request $request)
-    // {
-    //     if ($request->has('csv_file')) {
-
-    //         $csv    = file($request->csv_file);
-    //         $chunks = array_chunk($csv, 1000);
-    //         // $header = [];
-
-    //         foreach ($chunks as $key => $chunk) {
-    //             $data = array_map('str_getcsv', $chunk);
-    //             if ($key == 0) {
-    //                 // $header = $data[0];
-    //                 unset($data[0]);
-    //             }
-
-    //             CsvImportJob::dispatch($data);
-    //         }
-    //     }
-    //     return "please upload CSV file";
-    // }
 }
