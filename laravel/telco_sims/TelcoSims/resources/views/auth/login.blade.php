@@ -10,12 +10,23 @@
                     <form action="{{ route('authenticate') }}" method="post">
                         @csrf
                         <div class="mb-3 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-end text-start">Email Address</label>
+                            <label for="region_code" class="col-md-4 col-form-label text-md-end text-start">Region
+                                Code</label>
                             <div class="col-md-6">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                    id="email" name="email" value="{{ old('email') }}">
+                                <input type="region_code" class="form-control @error('region_code') is-invalid @enderror"
+                                    id="region_code" name="region_code" value="{{ old('region_code') }}">
+                                @if ($errors->has('region_code'))
+                                    <span class="text-danger">{{ $errors->first('region_code') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="username" class="col-md-4 col-form-label text-md-end text-start">User Name</label>
+                            <div class="col-md-6">
+                                <input type="username" class="form-control @error('username') is-invalid @enderror"
+                                    id="username" name="username" value="{{ old('username') }}">
                                 @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    <span class="text-danger">{{ $errors->first('username') }}</span>
                                 @endif
                             </div>
                         </div>

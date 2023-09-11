@@ -1,0 +1,13 @@
+1. Add new column to already existing table in laravel
+	-> php artisan make:migration add_role_to_users_table --table=users
+	-> php artisan migrate
+	-> php artisan migrate:status
+Note: flag --table=users is optional.
+
+2. To rollback a specific migration in laravel.
+php artisan migrate:rollback --path=database/migrations/2023_09_07_073056_add_region_columns_to_users_table.php
+
+3. To rename a column
+php artisan make:migration change_email_to_username_in_users_table
+
+

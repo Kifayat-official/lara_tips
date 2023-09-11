@@ -164,8 +164,6 @@ class SimController extends Controller
                 $path = resource_path("temp");
                 file_put_contents($path . $name, $chunk);
             }
-
-
         }
     }
     public function import1(Request $request)

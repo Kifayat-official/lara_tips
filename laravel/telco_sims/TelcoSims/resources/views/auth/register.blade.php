@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <form action="{{ route('store') }}" method="post">
                         @csrf
-                        <div class="mb-3 row">
+                        {{-- <div class="mb-3 row">
                             <label for="name" class="col-md-4 col-form-label text-md-end text-start">Name</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
@@ -18,15 +18,14 @@
                                     <span class="text-danger">{{ $errors->first('name') }}</span>
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="mb-3 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-end text-start">Email
-                                Address</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-end text-start">User Name</label>
                             <div class="col-md-6">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                    id="email" name="email" value="{{ old('email') }}">
-                                @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                <input type="username" class="form-control @error('username') is-invalid @enderror"
+                                    id="username" name="username" value="{{ old('username') }}">
+                                @if ($errors->has('username'))
+                                    <span class="text-danger">{{ $errors->first('username') }}</span>
                                 @endif
                             </div>
                         </div>

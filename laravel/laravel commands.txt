@@ -1,9 +1,0 @@
-1. To create a new Laravel project using composer
-	-> composer create-project --prefer-dist laravel/laravel blog "6.*"
-
-1. Add new column to already existing table in laravel
-	-> php artisan make:migration add_role_to_users_table --table=users
-	-> php artisan migrate
-	-> php artisan migrate:status
-Note: flag --table=users is optional.
-

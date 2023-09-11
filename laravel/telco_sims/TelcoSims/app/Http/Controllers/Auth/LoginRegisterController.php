@@ -39,24 +39,23 @@ class LoginRegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:250',
+            'username' => 'required|string|max:250',
             'region_code' => 'required|string|max:5',
             'region_name' => 'required|string|max:50',
-            'email' => 'required|email|max:250|unique:users',
             'password' => 'required|min:3|confirmed'
         ], [
-            'name.required' => 'The username field is required!'
+            'username.required' => 'The username field is required!'
         ]);
 
         User::create([
-            'name' => $request->name,
+            'username' => $request->username,
+            'email' => '',
             'region_code' => $request->region_code,
             'region_name' => $request->region_name,
-            'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
         Auth::attempt($credentials);
 
         $request->session()->regenerate();
@@ -83,7 +82,8 @@ class LoginRegisterController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'region_code' => 'required',
+            'username' => 'required',
             'password' => 'required'
         ]);
 
