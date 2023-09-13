@@ -92,14 +92,19 @@
     <script>
         $(document).ready(function() {
 
+            var submitButton = $('#submit-btn');
+            submitButton.addClass("d-none");
+
             $('#csv_file').change(function() {
                 var fileInput = $(this);
-                var submitButton = $('#submit-btn');
+
 
                 if (fileInput[0].files.length > 0) {
                     submitButton.prop('disabled', false);
+                    submitButton.removeClass("d-none");
                 } else {
-                    submitButton.prop('disabled', true);
+                    submitButton.addClass("d-none");
+                    // submitButton.prop('disabled', true);
                 }
             });
 
@@ -124,15 +129,17 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(data) {
+                        submitButton.addClass("d-none");
+
                         submitBtnContent.show();
                         submitBtnSpinner.hide();
-
-                        resMsgTxt.text(data.message);
                         resMsgDiv.removeClass("d-none");
+                        resMsgTxt.text(data.message);
 
-                        setTimeout(function() {
-                            resMsgDiv.addClass("d-none");
-                        }, 5000);
+
+                        // setTimeout(function() {
+                        //     resMsgDiv.addClass("d-none");
+                        // }, 5000);
                     },
                     error: function(error) {
                         submitBtnContent.show();
