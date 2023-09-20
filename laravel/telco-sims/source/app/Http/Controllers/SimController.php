@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sim;
 use App\Jobs\CsvImportJob;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Log;
@@ -38,16 +39,32 @@ class SimController extends Controller
         // ]);
 
         $requestData = $request->except('_token');
-        if ($request->rec_id) {
 
-            $sim = Sim::find($request->rec_id);
-            $sim->update($requestData);
-            return redirect()->route('sims.index')
-                ->with('success', 'Sim updated successfully.');
-        } else {
-            Sim::create($requestData);
-            return redirect()->route('sims.index')
-                ->with('success', 'Sim created successfully.');
+        try {
+            // update else create user
+            if ($request->rec_id) {
+                $sim = Sim::find($request->rec_id);
+                $sim->update($requestData);
+
+                return redirect()
+                    ->route('sims.index')
+                    ->with('success', 'Sim updated successfully.');
+            } else {
+                Sim::create($requestData);
+
+                return redirect()
+                    ->route('sims.index')
+                    ->with('success', 'Sim created successfully.');
+            }
+        } catch (Exception $ex) {
+            dd("exceoptin");
+            // Log the exception for debugging
+            Log::error('Error while creating/updating user: ' . $ex->getMessage());
+
+            // Redirect back with an error message
+            return redirect()->back()
+                ->withInput() // to retain old input in case it's a form submission
+                ->withErrors('error', 'Error while creating/updating user: ' . $ex->getMessage());
         }
     }
     /**

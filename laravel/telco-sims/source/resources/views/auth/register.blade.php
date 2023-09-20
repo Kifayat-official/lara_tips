@@ -73,6 +73,12 @@
                             <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Register">
                         </div>
 
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
                     </form>
                 </div>
             </div>

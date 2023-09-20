@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\QueryException;
 
 class LoginRegisterController extends Controller
 {
@@ -47,20 +50,36 @@ class LoginRegisterController extends Controller
             'username.required' => 'The username field is required!'
         ]);
 
-        User::create([
-            'username' => $request->username,
-            'email' => '',
-            'region_code' => $request->region_code,
-            'region_name' => $request->region_name,
-            'password' => Hash::make($request->password)
-        ]);
+        try {
+            User::create([
+                'username' => $request->username,
+                'email' => '',
+                'region_code' => $request->region_code,
+                'region_name' => $request->region_name,
+                'password' => Hash::make($request->password)
+            ]);
 
-        $credentials = $request->only('username', 'password');
-        Auth::attempt($credentials);
+            $credentials = $request->only('username', 'password');
+            Auth::attempt($credentials);
 
-        $request->session()->regenerate();
-        return redirect()->route('sims.index')
-            ->withSuccess('You have successfully registered & logged in!');
+            $request->session()->regenerate();
+            return redirect()->route('sims.index')
+                ->withSuccess('You have successfully registered & logged in!');
+        } catch (QueryException $e) {
+            $errorCode = $e->errorInfo[1];
+
+            if ($errorCode == 1062) {
+                return redirect()->back()
+                    ->withInput() // to retain old input
+                    ->with('error', 'This username already registered. Please use a different one.');
+            }
+        } catch (Exception $ex) {
+
+            // Redirect back with an error message
+            return redirect()->back()
+                ->withInput() // to retain old input in case it's a form submission
+                ->with('error', 'Error while creating/updating user');
+        }
     }
 
     /**
