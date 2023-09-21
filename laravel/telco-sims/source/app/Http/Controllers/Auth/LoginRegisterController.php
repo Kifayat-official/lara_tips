@@ -53,7 +53,6 @@ class LoginRegisterController extends Controller
         try {
             User::create([
                 'username' => $request->username,
-                'email' => '',
                 'region_code' => $request->region_code,
                 'region_name' => $request->region_name,
                 'password' => Hash::make($request->password)
@@ -89,7 +88,8 @@ class LoginRegisterController extends Controller
      */
     public function login()
     {
-        return view('auth.login');
+        phpinfo();
+        // return view('auth.login');
     }
 
     /**
