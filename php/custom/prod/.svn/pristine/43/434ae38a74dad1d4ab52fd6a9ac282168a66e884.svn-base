@@ -1,0 +1,343 @@
+$(document).ready(function () {
+    $("#formation_wapda").prop("checked", true);
+    $('#wapda_div').show();
+    $('.civil').css('display', 'none');
+});
+
+function select_div() {
+    var Option = $('input[name=formation]:checked').val();
+    if (Option == 'wapda') {
+        $("#civil_div").css('display', 'none');
+        $('.civil').hide();
+        $('#wapda_div').show();
+        $('.el_span').hide();
+        $("#searchForm").trigger("reset");
+        $("#formation_wapda").prop("checked", true);
+        $('#search').prop('disabled', true);
+    } else {
+        $('#civil_div').show();
+        $('.civil').show();
+        $('#wapda_div').hide();
+        $('.el_span').hide();
+        $("#searchForm").trigger("reset");
+        $("#formation_civil").prop("checked", true);
+        $('#search').prop('disabled', true);
+    }
+
+    $('#mohallah_txt_field').removeClass('found');
+    $('#mohallah_txt_field').removeClass('notfound');
+
+}
+function get_circle() {
+    var comp = $('#company').val();
+
+    $("#circle").empty().append('<option value="cir">Select Circle</option>');
+    $("#divisions").empty().append(' <option value="div">Select Divisions</option>');
+    $("#subdivisions").empty().append('<option value="subdiv">Select Subdivisions</option>');
+    $("#feeder_wapda").empty().append('<option value="feeder_sdiv">Select Feeders</option>');
+
+
+
+    if (comp != 'comp') {
+        var comp_name = $("#company option:selected").text();
+        $("#disco").show();
+        $("#disco").html(comp_name);
+    } else {
+        $("#disco").hide();
+    }
+
+    $.post("get_circle.php", { code: comp }, function (ress) {
+        $('#circle').html(ress);
+    });
+}
+function get_districts() {
+
+    $("#district").empty().append('<option value="dis">Select Districts</option>');
+    $("#tehsil").empty().append('<option value="tehsil">Select Tehsil</option>');
+    $("#mohallah_txt_field").val('');
+    $("#feeder_civil").empty().append('<option value="feeder_moh">Select Feeders</option>');
+
+    var comp = $('#company_civil').val();
+    if (comp != 'comp_civil') {
+        var comp_name = $("#company_civil option:selected").text();
+        $("#disco").show();
+        $("#disco").html(comp_name);
+    } else {
+        $("#disco").hide();
+    }
+
+    $.post("get_district.php", { code: comp }, function (ress) {
+
+        $('#district').html(ress);
+    });
+}
+function get_tehsil() {
+    $("#tehsil").empty().append('<option value="tehsil">Select Tehsil</option>');
+    $("#mohallah_txt_field").val('');
+    $("#feeder_civil").empty().append('<option value="feeder_moh">Select Feeders</option>');
+
+    var district = $('#district').val();
+    $('#spinner').show();
+    $.post("get_tehsil.php", { code: district }, function (ress) {
+        $('#spinner').hide();
+        $('#tehsil').html(ress);
+    });
+}
+function get_divisions() {
+
+
+    $("#subdivisions").empty().append('<option value="subdiv">Select Subdivisions</option>');
+    $("#feeder_wapda").empty().append('<option value="feeder_sdiv">Select Feeders</option>');
+
+    var cir = $('#circle').val();
+    $.post('get_division.php',
+        {
+            code: cir
+
+        }, function (response) {
+            $('#spinner').hide();
+            $('#divisions').html(response);
+        });
+
+}
+
+function get_bage(opt) {
+    if (opt == 'wapda') {
+        var feed = $('#feeder_wapda').val();
+        var feed_name = $('#feeder_wapda option:selected').text();
+    } else {
+        var feed = $('#feeder_civil').val();
+        var feed_name = $('#feeder_civil option:selected').text();
+    }
+
+    $('#search').prop('disabled', false);
+
+}
+
+function get_subdivisions() {
+
+    $("#feeder_wapda").empty().append('<option value="feeder_sdiv">Select Feeders</option>');
+    var div = $('#divisions').val();
+
+    $.post('get_subdivision.php',
+        {
+            code: div
+        }, function (response) {
+
+            $('#subdivisions').html(response);
+        });
+
+}
+
+async function get_grid(gridList) {
+    
+    var comp = $('#grid_company').val().slice(0, -3);
+
+    var name = "";
+    if (comp == 11) {
+        name = 'LESCO';
+    } else if (comp == 12) {
+        name = 'GEPCO';
+    } else if (comp == 13) {
+        name = 'FESCO';
+    } else if (comp == 14) {
+        name = 'IESCO';
+    } else if (comp == 15) {
+        name = 'MEPCO';
+    } else if (comp == 26) {
+        name = 'PESCO';
+    } else if (comp == 37) {
+        name = 'HESCO';
+    } else if (comp == 38) {
+        name = 'SEPCO';
+    } else if (comp == 48) {
+        name = 'QESCO';
+    } else {
+        name = 'TESCO';
+    }
+
+    $('#disco_name').html(name);
+
+    let filtered_arr = gridList.filter(function (e) {
+        return e.company_code == comp;
+    });
+
+    var options = '<option value="-1">Select Grid</option>';
+    var value = '';
+    var option_text = '';
+
+    filtered_arr.forEach(function (item) {
+        value = item['grid_code'];
+        option_text = item['grid_name'];
+        options += '<option value="' + value + '">' + option_text + ' (' + value + ')' + '</option>';
+    });//foreach loop
+
+    $('#grid').empty().html(options);
+
+}
+
+function get_feeder_frm_sdiv() {
+    var subdiv = $('#subdivisions').val();
+    $.post('../../get_feeder.php',
+        {
+            sdiv_code: subdiv
+
+        }, function (response) {
+
+            $('#feeder_wapda').html(response);
+        });
+
+}
+
+function get_feeder_lat_lon() {
+    var feeder = $('#feeder').val();
+
+    $.post('get_feeder_lat_lon.php',
+        {
+            code: feeder
+
+        }, function (data) {
+            var obj = JSON.parse(data);
+
+            var lat = obj['lat'];
+            var lon = obj['lon'];
+
+            get_nearest_feeder(lon, lat);
+
+        });
+
+}
+
+function get_feeder_loadsheddding_schdule() {
+    var feeder;
+    var Option = $('input[name=formation]:checked').val();
+    if (Option == 'wapda') {
+        feeder = $('#feeder_wapda').val();
+    } else {
+        feeder = $('#feeder_civil').val();
+    }
+    var url = "http://ccms.pitc.com.pk/flsfeeder_index?search_type=feeder_code&search_value=" + feeder;
+
+    window.open(url);
+}
+function get_feeder_frm_mohallah() {
+
+    var tehsil_name = $('#tehsil').val();
+    var mohallah_name = $('#mohallah_txt_field').val();
+    $.post('../../get_feeder_frm_mohallah.php',
+        {
+            mohallah: mohallah_name,
+            tehsil: tehsil_name
+
+        }, function (response) {
+            $('#feeder_civil').html(response);
+        });
+
+}
+
+function resetMohala2() {
+    console.log('resetMohala()');
+
+    $('#mohalalist').html('');
+    $('#mohalalist').hide();
+    $('#mohallah_txt_field2').val('');
+    $('#mohallah_txt_field2').focus();
+}
+
+function get_feeder_frm_mohallah2() {
+
+    $('#mohalalist').html('');
+
+    var search_company = $('#search_company').val();
+    var mohallah_name = $('#mohallah_txt_field2').val();
+
+    console.log('***search: ' + mohallah_name);
+
+    if (mohallah_name.trim().length > 2) {
+        $.post('../../get_feeder_frm_mohallah_search.php',
+            {
+                mohallah: mohallah_name,
+                company: search_company
+
+            }, function (response) {
+                $('#mohalalist').show();
+                $('#mohalalist').html(response);
+
+            });
+    }
+
+}
+function get_mohallah() {
+    $("#mohallah_txt_field").val('');
+    $("#feeder_civil").empty().append('<option value="feeder_moh">Select Feeders</option>');
+
+    var tehsil = $('#tehsil').val();
+    var tehsil_name = $('#tehsil option:selected').text();
+    var countMohala = 0;
+    var options = '';
+    $.post('../../get_mohallah.php',
+        {
+            tehsil_name: tehsil
+
+        }, function (response) {
+
+
+            var obj = JSON.parse(response);
+            if (obj.status == '1') {
+
+                obj.data.forEach(function (item) {
+                    countMohala++;
+                    var name = item['mohallah_name'].toUpperCase();
+                    options += '<option value="' + name + '">' + name + '</option>';
+                });
+
+                if (countMohala > 0) {
+                    $('#mohallah_txt_field').removeClass('notfound');
+                    $('#mohallah_txt_field').addClass('found');
+                } else {
+                    $('#mohallah_txt_field').removeClass('found');
+                    $('#mohallah_txt_field').addClass('notfound');
+                }
+
+                $('#mohallah_txt_field').show();
+                $('#mohallah_msg').html('').hide();
+                $('#mohallah_txt').empty().html(options);
+            } else {
+                $('#mohallah_txt_field').removeClass('found');
+                $('#mohallah_txt_field').removeClass('notfound');
+                $('#mohallah_txt_field').hide();
+                $('#mohallah_msg').html('No Data Found!').css("color", "red").show();
+            }
+
+
+        });
+
+}
+function currentTime() {
+    let d = new Date();
+    let date = d.toDateString();
+    let hh = d.getHours();
+    let mm = d.getMinutes();
+    let ss = d.getSeconds();
+    let session = "AM";
+
+    if (hh == 0) {
+        hh = 12;
+    }
+    if (hh > 12) {
+        hh = hh - 12;
+        session = "PM";
+    }
+
+    hh = (hh < 10) ? "0" + hh : hh;
+    mm = (mm < 10) ? "0" + mm : mm;
+    ss = (ss < 10) ? "0" + ss : ss;
+
+    let time = hh + ":" + mm + ":" + ss + " " + session;
+
+    document.getElementById("clock").innerText = date + ' ' + time;
+    let t = setTimeout(function () {
+        currentTime()
+    }, 1000);
+}
+currentTime();

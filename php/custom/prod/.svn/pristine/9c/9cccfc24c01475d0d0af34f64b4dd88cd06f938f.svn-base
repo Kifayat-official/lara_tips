@@ -1,0 +1,545 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript">
+
+    
+   let fdr_list = null
+   let grid_list = null
+   let comp;
+   let grid;
+   let name;
+async function get_grid_on_company_change(company=null){
+     
+     let sorted_array;
+
+     $('#loader').show();
+     $('#opt').html("Grid Wise");
+     $('#sel_grid').html('');
+     $('#grid').prop('disabled', 'disabled');
+    if(company==null){
+        comp = $('#grid_company').val().slice(0, -3);
+    }else{
+        comp=company;
+    }
+    //show breadcrums
+    show_breadcrum();
+    // get gid data on company change
+    grid_list=await getGridData(comp);
+    // execute only if grid_list has data
+    if(grid_list)
+    {      
+          //populate grid drop down
+          get_grid(grid_list);
+          $('#grid').prop('disabled', false);
+          //calculate loss column for the grid data
+         sorted_array=await calculate_loss("grid",grid_list);
+        
+         // execute only if sorted_array has data
+
+         if(sorted_array){
+            
+            //show Data Table
+                show_table('grid',sorted_array);
+
+         }
+
+    }
+   
+
+}
+async function get_feeder_on_grid_change(grd=null,grid_name=null){
+    //console.log(grd);
+    
+	let sorted_array;
+    $('#opt').html("Feeder Wise");
+	$('#loader').show();
+
+    if(grd==null){
+        grid = $('#grid').val();
+        name=$('#grid option:selected').text();
+    }else{
+        grid=grd;
+        name=grid_name;
+    }
+    //console.log(grid);
+    $('#sel_grid').html("-"+name);
+
+    show_breadcrum(grid);
+
+    // get feeders data on grid change
+    fdr_list=await getFeeders(grid);
+    // execute only if grid_list has data
+    if(fdr_list)
+    {      
+          if(fdr_list.Message)
+          {
+            $('#msg').show();
+            $('#loader').hide();
+          }else{
+             //calculate loss column for the grid data
+                     sorted_array=await calculate_loss("feeder",fdr_list);
+                    
+                     // execute only if sorted_array has data
+
+                     if(sorted_array){
+                        
+                        //show Data Table
+                            show_table('feeder',sorted_array);
+
+                     }
+                     $('#msg').hide();
+          }
+         
+
+    }
+   
+
+}
+
+function show_breadcrum(data=null)
+{   let list_items;
+    let company;
+    let company_code;
+    let grid_name;
+    company=$('#grid_company option:selected').text().slice(9);
+    company_code=$('#grid_company').val().slice(0,-3);
+    if(data==null)
+    {   
+         
+        data=`<li class="breadcrumb-item active" aria-current="page">${company}</li>`;
+    }else{
+        $('#grid').val(data);
+        grid_name=$('#grid option:selected').text();
+        data=`<li class="breadcrumb-item" aria-current="page"><a href="#" onClick='get_grid_on_company_change(${company_code})'>${company}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">${grid_name}</li>`;
+    }
+    $('#breadcrumb').empty().append(data);
+    $('#nav_breadcrum').show();
+}
+    async function getFeeders(grid_code) {
+           
+        let feeders_url = `http://117.20.28.181:9075/CISDBAPI/GetCP22Feeders/${grid_code}/01-aug-2022`;
+
+        try {
+            fdr_list = await fetch(feeders_url);
+            return await fdr_list.json();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+   async function getGridData(comp) {
+        let result;
+        let grids_url = `http://117.20.28.181:9075/CISDBAPI/GetGrids/${comp}/01-aug-2022`;
+
+        try {
+            result = await fetch(grids_url);
+            return await result.json();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+   async function calculate_loss(option,gridList){
+        let data;
+        if(option=="grid")
+        {
+            data=gridList;
+        }else{
+            data=gridList.lstCP22Data;
+        }
+        
+        //console.log(data.lstCP22Data);
+        var billing=0;
+        var collection=0;
+        var diff=0;
+        //add amount key pair value
+         let new_array_with_amount_loss=data.map(feeder=>{
+            
+                billing=+feeder.recovery_billing;
+                collection=+feeder.recovery_collection;
+                diff=((billing-collection)/1000000).toFixed(2);
+              
+            return {...feeder,amount_loss:+diff};
+        });
+        //sort array in descending order
+      
+       let new_array=[];
+       //make a copy of array
+       new_array = new_array_with_amount_loss.slice();
+
+       //sort array descending
+
+        new_array.sort((a, b) => {
+                                return b.amount_loss-a.amount_loss;
+                                    
+                            });
+     
+            return new_array;
+      
+        
+        
+    }
+  // async function show_chart() {
+  //       let fdr_code = $('#grid_feeder').find(":selected").val()
+  //       fdr_list = await getFeeders();
+
+  //       let fdr = fdr_list.lstCP22Data.filter(fdr => {
+  //           return fdr.feeder_code == fdr_code
+  //       })[0]
+        
+       
+  //       let series_arr = [
+  //           +fdr.no_of_consumers,
+  //           +fdr.units_received,
+  //           +fdr.units_sold,
+  //           +fdr.units_lost,
+  //           +fdr.units_age_loss_per,
+  //           +fdr.recovery_billing,
+  //           +fdr.recovery_collection,
+  //           +fdr.recovery_collection_per,
+  //           +fdr.atc_loss_per
+  //       ]
+
+  //       let categories = [
+  //           'No of consumers',
+  //           'Units Received',
+  //           'Units Sold',
+  //           'Units Lost',
+  //           'Units Age Loss Per',
+  //           'Recovery Billing',
+  //           'Recovery Collection',
+  //           'Recovery Collection Per',
+  //           'ATC Loss Per'
+  //       ]
+
+  //       Highcharts.chart('container', {
+  //           chart: {
+  //               type: 'bar'
+  //           },
+  //           title: {
+  //               text: 'Progressive Distribution Losses (FY2021-2022)'
+  //           },
+  //           xAxis: {
+  //               categories: categories
+  //           },
+  //           yAxis: {
+  //               title: {
+  //                   text: 'Feeder Statistics'
+  //               }
+  //           },
+  //           series: [{
+  //               name: '',
+  //               data: series_arr
+  //           }],
+  //       });
+
+  //       show_table()
+        
+  //   }
+
+    async function show_table(option,gridList) {
+      
+        let html = '';
+        let htmlSegment;
+         $('#grid_table').DataTable().clear().destroy();
+       
+        gridList.forEach(fdr => {
+
+			unts_rcvd_tip= fdr.units_received
+			unts_sld_tip= fdr.units_sold
+			unts_lost_tip= fdr.units_lost
+			
+			unts_rcvd= (fdr.units_received/1000000).toFixed(2)
+			unts_sld= (fdr.units_sold/1000000).toFixed(2)
+			unts_lost= (fdr.units_lost/1000000).toFixed(2)
+			
+			bllng_tip= fdr.recovery_billing
+			coll_tip = fdr.recovery_collection
+            bllng= (fdr.recovery_billing/1000000).toFixed(2)
+			coll = (fdr.recovery_collection/1000000).toFixed(2)
+			
+			htmlSegmentOption = "";
+			
+            if(option=='grid')
+            {
+				htmlSegmentOption = `
+                <td><a href='#' onClick="get_feeder_on_grid_change('${fdr.grid_code}','${fdr.grid_name}')">${fdr.grid_code}</a></td>
+                <td><a href='#' onClick="get_feeder_on_grid_change('${fdr.grid_code}','${fdr.grid_name}')">${fdr.grid_name}</a></td>
+                `;
+            }else{
+                htmlSegmentOption = `
+                <td>${fdr.feeder_code}</td>
+                <td>${fdr.feeder_name}</td>
+				`;
+            }
+             
+			htmlSegment = `
+			<tr>`+
+				htmlSegmentOption
+				 +
+				`<td>${+fdr.no_of_consumers}</td>
+				<td><span title="${+unts_rcvd_tip}">${+unts_rcvd}</span></td>
+				<td><span title="${+unts_sld_tip}">${+unts_sld}</span></td>
+				<td><span title="${+unts_lost_tip}">${+unts_lost}</span></td>
+				<td>${+fdr.units_age_loss_per}</td>
+				<td><span title="${+bllng_tip}">${+bllng}</span></td>
+				<td><span title="${+coll_tip}">${+coll}</span></td>
+				<td class="default_td">${+fdr.amount_loss}</td>
+				<td>${+fdr.recovery_collection_per}</td>
+				<td>${+fdr.atc_loss_per}</td>
+			</tr>`;
+			
+            html += htmlSegment;
+        });
+       
+      
+        $('#tbl-fdr-stats').empty();
+        $('#tbl-fdr-stats').append(html);
+        $('#loader').hide();
+        $('#grid_table').DataTable({
+             "order": [],
+             "pageLength" : 10,
+             "lengthMenu": [[10, 20, -1], [10, 20, 30, 'Todos']]
+        });
+
+    }
+
+</script>
+<style type="text/css">
+    .breadcrumb{
+        background-color: #c1e92363;
+        padding-left:3px;
+        font-weight: bold;
+        margin: 0px;
+    }
+    #grid_table th,
+    #grid_table td {
+        border: 1px solid #eee;
+        color: black;
+        text-align: center;
+        background-color: white;
+        font-size: 11px;
+        padding: 2px;
+
+    }
+	#grid_table th{
+			background: #f7f7f7;
+	}
+	
+    #grid_table thead,
+    #grid_table tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    #grid_table tbody {
+        display: block;
+        /*height: 270px;
+        overflow: auto;*/
+    }
+
+    .nav-link,
+    .nav-link active {
+        background: transparent;
+        color: white;
+
+    }
+
+    .pole {
+        background: url("pole.png") no-repeat left top;
+        background-size: 15px 15px;
+        padding-left: 30px;
+        font-weight: bold;
+        /*color:#69dd21;*/
+
+    }
+
+    .olMohala {
+        background: transparent;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    /*.olMohala b{
+ color: white !important;
+}
+*/
+
+    .olMohala li {
+        margin-right: 15px;
+        border-bottom: 1px solid #ffcc00;
+        padding: 10px;
+
+    }
+
+    .olMohala li:hover {
+        background: #989898;
+        color: black
+    }
+
+    .olMohala .sdiv {
+        /*padding-left: 30px */
+    }
+
+    .mohSeachPanel {
+        background: transparent;
+        padding: 10px;
+        /*border: 2px solid #fbe35d;*/
+        border: 0.5px dotted #C8C8C8;
+        font-family: arial;
+        font-size: 12px;
+        line-height: 1.75em;
+        width: 70%;
+        margin-left: 20px;
+        color: white;
+
+    }
+
+    .mohSeachPanel a {
+        float: right;
+    }
+	td.default_td, #grid_table th.default_td{ background: #ffedf0 !important; }
+	#tbl-fdr-stats tr:hover td{ background: lightyellow; }
+	#tbl-fdr-stats tr:hover td:hover{ background: yellow; }
+</style>
+
+
+<!-- <i class="fas fa-times" style="float: right;color: white;" onclick="hide_tab()"></i> -->
+<div class="col-lg-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card_overlay" style="margin-bottom: 0px">
+                <form class="form-horizontal" id="searchForm">
+                    <div class="card-body ">
+                        <!--<div class="form-group row">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-check-inline">
+                                                                    <input type="radio" class="form-check-input"
+                                                                        id="formation_wapda" name="formation" value="wapda"
+                                                                        onchange="select_div()" checked="checked" />
+                                                                    <label for="formation_wapda"
+                                                                        class="form-check-label mb-1"
+                                                                        for="customControlValidation1">Wapda
+                                                                        Formation</label>
+                                                                </div>
+                                                                <div class="form-check-inline">
+                                                                    <input type="radio" class="form-check-input"
+                                                                        name="formation" value="civil"
+                                                                        onchange="select_div()" id="formation_civil" />
+                                                                    <label for="formation_civil"
+                                                                        class="form-check-label mb-1"
+                                                                        for="customControlValidation1">Civil
+                                                                        Formation</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>-->
+                        <div class="form-group row">
+
+                            <span class="badge rounded-pill bg-warning" style="font-size:14px;font-weight:bold;display: block;margin-bottom: 10px;">
+                                Grid Search
+                            </span>
+                            <select name="grid_company" id="grid_company" class="select2 form-select shadow-none" style="width: 100%;margin-bottom:3px;" onchange="get_grid_on_company_change()">
+                                <option value="comp">Select Company</option>
+                                <?php echo $options; ?>
+                            </select>
+                            <select name="grid" id="grid" class="select2 form-select shadow-none" style="width: 100%;margin-bottom:3px " onchange="get_feeder_on_grid_change()">
+                                <option value="cir">Select Grid</option>
+                            </select>
+                            <div class="text-center" style="margin-top: 10px;display: none;" id='loader' >
+                                <div class="spinner-border text-success" role="status">
+                                      <span class="visually-hidden">Loading...</span>
+                                    </div>
+                            </div>
+                            <div class="alert alert-danger alert-dismissible fade show" id='msg' role="alert" style="display: none;">
+                              <strong>No feeders found for the selected Grid</strong> 
+                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            <!-- <select name="grid_feeder" id="grid_feeder" class="select2 form-select shadow-none" style="width: 100%;margin-bottom:3px" onchange="$('#search_grid').prop('disabled',false)">
+                                <option value="div">Select Feeder</option>
+                            </select> -->
+
+                        </div>
+                        <!--btn-->
+                       <!--  <div class="form-group row">
+                            <div class="col-sm-9">
+                                <button type="button" id="search_grid" class="btn btn-info" style="float: right;margin-right: 20px;" disabled onclick="get_feeder_loadsheddding_schdule()">
+                                    <i class="fas fa-search "></i> Search
+                                </button>
+
+                                <button type="button" id="search_grid" class="btn btn-info" style="float: right;margin-right: 20px;" disabled onclick="show_chart()">
+                                    <i class="fas fa-search "></i> Search
+                                </button>
+                            </div>
+                        </div> -->
+
+                        <div class="feeder_container"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-9 ">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- <input id="chart" type="button" value="chart" onclick="show_chart();" />
+                                                       <div id="container" style="height: 300px"></div> -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-top:10px;">
+               <!--  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Graph</button>
+                </li> -->
+                <li class="nav-item" role="presentation" style='padding-left: 10px;'>
+                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Statistics</button>
+                </li>
+
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <!-- <div class="tab-pane fade " id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div id="container" style="height: 300px;margin-top:10px;"></div>
+                </div> -->
+                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="margin-top: 15px; font-size: 12px;">
+                    <nav aria-label="breadcrumb" style="display:none;" id="nav_breadcrum">
+                          <ol class="breadcrumb" id='breadcrumb'></ol>
+                        </nav>
+                    <p style="text-align:center;font-weight: bold;font-size: 16px;margin-bottom:0px;"><span id="opt">Grid wise</span>Distribution Losses, Billing & Recovery (without subsidy)<br><span id='disco_name'></span><span id='sel_grid'></span></p>
+                    <table id='grid_table' style="width:100%">
+                        <thead>
+                            <tr>
+
+                                <th colspan="3" rowspan="2" width="25%">Feeder</th>
+                                <th colspan="8" width="67%">Progressive (08-2022)</th>
+                                <th rowspan="3" width="8%">%Age ATC Losses</th>
+                            </tr>
+                            <tr>
+                                <th colspan="4">Units (MkWH)</th>
+                                <th colspan="4">Recovery %Age against Billing (without subsidy)</th>
+                            </tr>
+                            <tr>
+
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>No.of Consumers</th>
+                                <th>Received</th>
+                                <th>Sold</th>
+                                <th>Lost</th>
+                                <th>%Age Loss</th>
+                                <th>Billing(M)</th>
+                                <th>Collection(M)</th>
+                                <th class="default_td">loss(M)</th>
+                                <th width="10%">%Age Collection</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl-fdr-stats">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

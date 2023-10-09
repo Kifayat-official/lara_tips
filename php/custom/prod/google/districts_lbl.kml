@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>KmlFile</name>
+  <Style id="point1">
+      <IconStyle>
+        <Icon>
+          <href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png
+          </href>
+        </Icon>
+      </IconStyle>
+      <BalloonStyle>
+        <text>$[video]</text>
+      </BalloonStyle>
+    </Style>
+  <!-- Begin Style Definitions -->
+  <Style id="point11">
+    <IconStyle><Icon>kml_ext_files/kml_symbol_no symbol_0.png</Icon></IconStyle>
+  </Style>
+
+    <Placemark>
+      
+      <name>Bagh</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.7401260744,33.9903673865,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Bhimber</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.1233747862,33.0087312473,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kotli</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.9128084752,33.4513946326,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Mirpur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.7387855665,33.2298948301,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Neelum</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.1751539639,34.7893852639,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Poonch</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.8353343720,33.8144847921,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sudhnoti</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.7448417807,33.7002740189,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Awaran</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>65.3825909097,26.1939415821,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Barkhan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.6151020357,29.9547477065,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Bolan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.5268197946,29.3460281019,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Chagai</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>63.2465990825,28.9599924526,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Dera Bugti</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.0531912370,28.9518876428,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Gwadar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>63.1089150328,25.3817769739,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Jaffarabad</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.0329977097,28.2252348864,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Jhal Magsi</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.5283015891,28.4030384950,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kalat</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>66.5840391759,28.8907510997,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kech</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>63.0626288424,25.9928133340,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Khuzdar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>66.6476288005,27.4589486172,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Killa Abdullah</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>66.6794375905,30.7449235164,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Killa Saifullah</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.3174504996,30.9679032457,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kohlu</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.8441820569,29.5881059736,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Lasbela</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>66.6246000464,25.7843797535,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Loralai</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.7640255925,30.3144687640,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Mastung</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>66.8273821472,29.7826683421,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Musakhel</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.9189391193,30.8720485525,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Nasirabad</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.1080910795,28.5912466045,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Naushki</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>65.7733235904,29.4563686060,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Panjgur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>64.1555016811,26.7426343654,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Pishin</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.2523159810,30.8125451117,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Quetta</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>66.7525503091,30.1530359804,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Ziarat</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.5002566153,30.4373112053,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Astore</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.8839089679,35.1438595529,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Shigar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>75.7692846558,35.7612008487,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Diamir</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.9881758200,35.5085698940,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Ghanche</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>76.6888190314,35.2682364998,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Ghizer</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.4411932167,36.2808415912,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Bajaur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.4956704879,34.7394238824,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Khyber</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.0632384627,33.9380522811,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kurrum</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.3098969814,33.6930904031,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Mohmand</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.3399746503,34.4437697150,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>North Waziristan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.9450070707,32.9263049746,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Orakzai</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.9916906994,33.6950147817,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>South Waziristan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.7161609681,32.3180485313,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>D.I. Khan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.5903470839,31.8184042081,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Islamabad</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.1205002049,33.6706873083,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Abbottabad</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.2681497421,34.1059937054,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Bannu</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.6483370709,33.0046987846,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Batagram</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.1222295897,34.7900044907,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Buner</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.5179591598,34.4641222292,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Charsadda</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.7184319803,34.2433290518,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Chitral</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.2523371448,36.2258354485,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Hangu</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.8479033054,33.4302725830,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Haripur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.8934176272,34.0043992913,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Karak</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.1097974731,33.1373513138,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kohat</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.5466898720,33.4846576442,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kohistan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.2261838179,35.3237835640,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Lakki Marwat</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.7996780147,32.6311049503,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Lower Dir</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.8458431097,34.8438783583,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Malakand PA</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.8956320878,34.5388863201,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Mardan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.0969817070,34.3134552050,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Nowshera</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.9859694774,33.9260830002,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Peshawar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.5971099368,33.9357495017,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Shangla</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.7318123452,34.8474344700,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Swabi</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.4579563261,34.1343841262,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Swat</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.4665620029,35.2533697332,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Tank</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.3302739322,32.3371090958,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Upper Dir</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.0356853817,35.2797361014,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Attock</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.3077991541,33.4906719625,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Bahawalnagar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.0665024062,29.6168715563,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Bahawalpur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.7239875753,28.8386838236,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Bhakkar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.4270441709,31.6512814001,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Chakwal</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.5327344662,32.8984631379,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>D. G. Khan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.4443989566,30.4102221126,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Faisalabad</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.1489261047,31.2379316786,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Gujranwala</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.0900297754,32.1386828840,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Gujrat</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.9922675428,32.7142929112,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Hafizabad</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.5039560861,32.0254497155,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Jhelum</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.2934191950,32.8284826374,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kasur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.1481576407,31.0524893222,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Khanewal</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.0185476296,30.3685595060,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Khushab</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.1056434124,32.1890758499,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Lahore</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.3497751756,31.4630652446,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Layyah</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.2484605737,30.9719640171,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Lodhran</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.6899105023,29.6729457508,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Mandi Bahauddin</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.4527100225,32.4345689036,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Mianwali</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.5323501229,32.6640101078,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Multan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.4043107394,29.9380845055,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Muzaffargarh</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>71.0394310576,30.0520439369,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Nankana</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.7531869003,31.3504103691,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Narowal</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>75.0011306347,32.1993310159,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Okara</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.7077487112,30.6938987767,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Pakpattan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.2446151949,30.3006715293,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Rahim Yar Khan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.5296323254,28.4248277820,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Rajanpur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.0340984501,29.1620554758,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Rawalpindi</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.1977160913,33.4642840384,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sahiwal</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.8951114854,30.5472794355,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sargodha</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.7418363517,32.0947956125,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sheikhupura</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.9761390078,31.7261215373,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sialkot</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.5340467594,32.4135258356,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Toba Tek Singh</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.5494111124,30.8779532875,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Vehari</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.4056902423,30.0092212074,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Badin</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.8413349309,24.7259477383,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Dadu</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.4975602941,26.8667357271,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Ghotki</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.6482789358,27.8148652968,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Hyderabad</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.4569732871,25.3403144272,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Jacobabad</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.4866399363,28.2067136729,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Jamshoro</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.7919744992,25.7342144029,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kamber</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.7127499045,27.6345451084,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Karachi</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.1957067463,25.0728520052,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kashmore</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.2614926021,28.2778022602,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Khairpur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.0794815045,26.8233750527,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Larkana</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.1962242602,27.5222125644,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Matiari</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.4535583275,25.7629483346,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Mirpur Khas</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.1569913409,25.2818063733,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Naushahro Feroze</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.1260071405,26.8777869776,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Nawabshah</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.3308749607,26.3631095900,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sanghar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.2802951776,25.9483285792,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Shikarpur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.6075292064,27.9468368093,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sukkur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.1687687806,27.5018119336,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Tando Allah Yar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.7761045811,25.4649544054,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Tando Muhammad Khan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.4801333175,25.0110236601,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Tharparkar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>70.1729577435,24.7774210955,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sujawal</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.1554483699,24.2355755254,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Umer Kot</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.7776739897,25.3820351828,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Gilgit</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.4214522535,35.9119272950,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Hunza</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>75.1061831455,36.5736779122,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kharan</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>65.4535983746,28.6004406357,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Washuk</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>64.3294875990,27.7377619467,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sibi</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.9452704497,29.7598785434,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Harnai</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.8640161625,30.1311531170,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Zhob</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.0007023798,31.3853979591,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sherani</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>69.7738560070,31.6456409477,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Jhang</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.1766876804,31.1745556819,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Chiniot</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.8250580665,31.6630096179,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Haveli</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.1173549947,33.9338963372,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Hattian</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.8312469790,34.1914406548,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Muzaffarabad</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.5893368578,34.3511041489,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Mansehra</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>73.4405840391,34.6639053131,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Tor Ghar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>72.8339211717,34.5520276064,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Kharmang</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>76.1082097561,34.8858092692,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Skardu</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>75.4384416532,35.0973303933,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Nagar</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>74.6313400898,36.2722459879,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Thatta</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>67.7100013837,24.7135415355,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Sohbatpur</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.6520975129,28.5011543514,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      
+      <name>Lehri</name>
+      <styleUrl>#point1</styleUrl>
+      <Point>
+        <coordinates>68.0117242841,29.0070704140,0</coordinates>
+      </Point>
+    </Placemark>
+</Document>
+</kml>

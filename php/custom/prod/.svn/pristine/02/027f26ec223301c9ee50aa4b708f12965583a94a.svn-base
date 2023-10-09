@@ -1,0 +1,50 @@
+<?php
+header('Access-Control-Allow-Origin: *');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include('../include/config.php');
+header("Content-type:application/json");
+
+
+ 
+$code = $_REQUEST['company_code'];
+
+if($code=="0"){
+	$q = "SELECT * FROM `grids_data`";
+}else{
+	if($code=="11" || $code=="12" || $code=="13" || $code=="14" || $code=="15" || $code=="26" || $code=="37" || $code=="38" || $code=="48" || $code=="59"){
+		$q = "SELECT * FROM `grids_data` WHERE company_code=$code";
+	}else{
+		echo "INVALID_REQUEST"; 
+		exit();
+	}
+}
+$conn=getDBConnection();
+
+$s= $conn->prepare($q);
+$s->execute();
+
+$grids = array();
+while($r = $s->fetch(PDO::FETCH_ASSOC)){
+
+	$grid_code=$r['grid_code'];
+	$grid_name=$r['grid_name'];
+	$long=$r["long"];
+	$lat=$r["lat"];
+	$code=$r['company_code'];
+	
+	$grid = array(
+	"grid_code" =>$grid_code, 
+	"grid_name"=>$grid_name, 
+	"company_code"=>$code,
+	"long" => $long,
+	"lat" => $lat
+	);
+    array_push($grids, $grid);
+	
+}
+
+echo json_encode($grids);
+
+?>
