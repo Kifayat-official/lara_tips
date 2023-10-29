@@ -1,0 +1,24 @@
+CREATE TABLE `test_logs` (
+	`id` CHAR(36) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`mdc_test_status_id` CHAR(36) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`mdc_test_session_id` CHAR(36) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`test_id` CHAR(36) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`is_pass` TINYINT(1) NOT NULL DEFAULT '0',
+	`remarks` LONGTEXT NULL COLLATE 'utf8mb4_unicode_ci',
+	`attachment` VARCHAR(191) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`request` LONGTEXT NULL COLLATE 'utf8mb4_unicode_ci',
+	`response_type` ENUM('table','json','xml') NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`response` LONGTEXT NULL COLLATE 'utf8mb4_unicode_ci',
+	`status` TINYINT(1) NULL DEFAULT '1',
+	`created_by` CHAR(36) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`updated_by` CHAR(36) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`created_at` TIMESTAMP NULL DEFAULT NULL,
+	`updated_at` TIMESTAMP NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_unicode_ci'
+ENGINE=InnoDB
+;
+
+ALTER TABLE `mdc_test_statuses`
+	ADD COLUMN `response_type` ENUM('table','json','xml') NULL DEFAULT NULL AFTER `request`;
