@@ -1,0 +1,17 @@
+
+-- 1.9
+
+ALTER TABLE `mdc_test_sessions`
+	ADD COLUMN `fee_voucher` VARCHAR(191) NULL DEFAULT NULL AFTER `mdc_version`;
+
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_4_', `name` = 'Reading Stored Load Profile Data 4_' WHERE (`id` = '51824dc0-8479-11ea-98c5-5f7b818ffb94');
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_3_', `name` = 'Reading Stored Load Profile Data 3_' WHERE (`id` = '51824d40-8479-11ea-a638-e56d459e62d9');
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_2_', `name` = 'Reading Stored Load Profile Data 2_' WHERE (`id` = '51824ce0-8479-11ea-91e9-1ffa2f4710fa');
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_1_', `name` = 'Reading Stored Load Profile Data 1_' WHERE (`id` = '51824c50-8479-11ea-ba2b-959f2fe58a32');
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_0_', `name` = 'Reading Stored Load Profile Data 0_' WHERE (`id` = '51824b80-8479-11ea-bf24-691284b33507');
+
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_4', `name` = 'Reading Stored Load Profile Data 4' WHERE (`id` = '51824dc0-8479-11ea-98c5-5f7b818ffb94');
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_3', `name` = 'Reading Stored Load Profile Data 3' WHERE (`id` = '51824d40-8479-11ea-a638-e56d459e62d9');
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_2', `name` = 'Reading Stored Load Profile Data 2' WHERE (`id` = '51824ce0-8479-11ea-91e9-1ffa2f4710fa');
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_1', `name` = 'Reading Stored Load Profile Data 1' WHERE (`id` = '51824c50-8479-11ea-ba2b-959f2fe58a32');
+UPDATE `tests` SET `idt` = 'reading_stored_load_profile_data_0', `name` = 'Reading Stored Load Profile Data 0' WHERE (`id` = '51824b80-8479-11ea-bf24-691284b33507');

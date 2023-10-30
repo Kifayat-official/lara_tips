@@ -1,0 +1,22 @@
+*** To use batches for jobs 
+1. php artisan queue:batches-table
+2. php artisan migrate
+3. Inside the job add 'Batchable' in the use statement
+4. Inside your controller method create the batch and dispatch it with no jobs
+	=> $batch = Bus::batch([])->dispatch(); 
+	Later add jobs to it like below:
+	=> $batch->add(new YourJobClassNameHere(param1, param2, and so on));
+	
+	
+*** To clear job & batch tables in mysql database
+   DELETE FROM sims;
+   ALTER TABLE sims AUTO_INCREMENT = 1; 
+
+   DELETE FROM failed_jobs;
+   ALTER TABLE failed_jobs AUTO_INCREMENT = 1;
+
+   DELETE FROM jobs;
+   ALTER TABLE jobs AUTO_INCREMENT = 1;
+
+   DELETE FROM job_batches;
+   ALTER TABLE job_batches AUTO_INCREMENT = 1;

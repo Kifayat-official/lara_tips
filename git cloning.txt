@@ -1,0 +1,8 @@
+Following are the steps to following to clone a github laravel project.
+
+1. git clone https://github.com/LaravelDaily/Laravel-8-Import-CSV.git
+2. cd Laravel-8-Import-CSV
+3. composer install
+4. cp .env.example .env
+5. php artisan key:generate
+6. php artisan migrate --seed

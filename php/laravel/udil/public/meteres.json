@@ -1,0 +1,106 @@
+{
+    "company": {
+        "id": "e062f510-63a3-11ea-9297-31a01c4c1303",
+        "name": "Accurate (Pvt.) Ltd.",
+        "description": null,
+        "address": "104 -J Block, Johar Town, Lahore",
+        "phone": "042-35300015, 923351730067",
+        "email": "engr.ubaid@accurate.com.pk",
+        "status": 1,
+        "created_by": null,
+        "updated_by": "ddab01e0-63a3-11ea-b339-d3315f35ba07",
+        "created_at": null,
+        "updated_at": "2021-11-02 13:27:58"
+    },
+    "meters": [
+        {
+            "id": "0248214f-6142-47c4-93fb-ec19cadaa06c",
+            "mdc_test_session_id": "9caa41aa-5190-4d9d-a3f7-81d4b4f945c2",
+            "msn": "2998202302",
+            "meter_type_id": "e0afdbe0-63a3-11ea-b9fd-73ef9021dd01",
+            "meter_type": "Three Phase Whole Current",
+            "global_device_id": "m98202302",
+            "status": 1,
+            "created_by": "9bf99e5e-551e-4965-bb5e-e0bd413f1c54",
+            "updated_by": null,
+            "created_at": "2023-07-31T08:11:17.000000Z",
+            "updated_at": "2023-07-31T08:11:17.000000Z"
+        }
+    ],
+    "read_comm_profile": {
+        "host": "117.20.28.188",
+        "username": "pitc",
+        "password": "Pitc@123",
+        "port": 3230,
+        "database": "udil32",
+        "code": null,
+        "status": 1,
+        "created_by": "9bf99e5e-551e-4965-bb5e-e0bd413f1c54",
+        "updated_by": null,
+        "created_at": "2023-07-31T08:11:17.000000Z",
+        "updated_at": "2023-07-31T08:11:17.000000Z",
+        "protocol": {
+            "id": "e1707160-63a3-11ea-95ef-a704734ec2af",
+            "communication_profile_type_idt": "database",
+            "idt": "mysql",
+            "name": "MySQL",
+            "description": "MySQL Database",
+            "status": 1,
+            "created_by": null,
+            "updated_by": null,
+            "created_at": null,
+            "updated_at": null
+        },
+        "communication_profile_type": {
+            "id": "e1360a90-63a3-11ea-aec1-b1b0e3c2fc26",
+            "idt": "database",
+            "name": "Database",
+            "description": "DB Tables\/Views",
+            "is_read": 1,
+            "is_write": 0,
+            "status": 1,
+            "created_by": null,
+            "updated_by": null,
+            "created_at": null,
+            "updated_at": null
+        }
+    },
+    "write_comm_profile": {
+        "host": "http:\/\/117.20.28.188:3222\/udil",
+        "username": "Pitc",
+        "password": "Pitc@123",
+        "port": null,
+        "database": null,
+        "code": "225",
+        "status": 1,
+        "created_by": "9bf99e5e-551e-4965-bb5e-e0bd413f1c54",
+        "updated_by": null,
+        "created_at": "2023-07-31T08:11:17.000000Z",
+        "updated_at": "2023-07-31T08:11:17.000000Z",
+        "protocol": {
+            "id": "e1707720-63a3-11ea-9440-6913d5109085",
+            "communication_profile_type_idt": "rest",
+            "idt": "rest",
+            "name": "REST-Ful",
+            "description": "Restful Web Services",
+            "status": 1,
+            "created_by": null,
+            "updated_by": null,
+            "created_at": null,
+            "updated_at": null
+        },
+        "communication_profile_type": {
+            "id": "e1360d00-63a3-11ea-97ca-9384ccdbeebb",
+            "idt": "rest",
+            "name": "Rest",
+            "description": "Rest Services",
+            "is_read": 1,
+            "is_write": 1,
+            "status": 1,
+            "created_by": null,
+            "updated_by": null,
+            "created_at": null,
+            "updated_at": null
+        }
+    }
+}
