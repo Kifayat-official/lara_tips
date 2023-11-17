@@ -69,7 +69,8 @@
     </nav> --}}
 
     <nav class="bg-gray-100 shadow">
-        <div class="container mx-auto px-4">
+
+        <div class="container mx-auto px-4 py-6 flex justify-between">
             @if (Auth::check())
                 @php
                     $regionName = Auth::user()->region_name;

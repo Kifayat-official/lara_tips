@@ -85,50 +85,51 @@
                         @csrf
 
                         <div class="mb-4 flex flex-col md:flex-row">
-                            <label for="username" class="md:w-4/12 md:text-right mb-2 md:mb-0">User Name</label>
+                            <label for="username" class="md:w-4/12 mb-2 md:mb-0 md:text-left">User Name</label>
                             <input type="username"
-                                class="w-full p-2 border rounded @error('username') border-red-500 @enderror" id="username"
-                                name="username" value="{{ old('username') }}">
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2 @error('username') border-red-500 @enderror"
+                                id="username" name="username" value="{{ old('username') }}" autocomplete="off">
                             @if ($errors->has('username'))
                                 <span class="text-red-500">{{ $errors->first('username') }}</span>
                             @endif
                         </div>
 
                         <div class="mb-4 flex flex-col md:flex-row">
-                            <label for="region_code" class="md:w-4/12 md:text-right mb-2 md:mb-0">Region Code</label>
+                            <label for="region_code" class="md:w-4/12 mb-2 md:mb-0 md:text-left">Region Code</label>
                             <input type="text"
-                                class="w-full p-2 border rounded @error('region_code') border-red-500 @enderror"
-                                id="region_code" name="region_code" value="{{ old('region_code') }}">
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2 @error('region_code') border-red-500 @enderror"
+                                id="region_code" name="region_code" value="{{ old('region_code') }}" autocomplete="off">
                             @if ($errors->has('region_code'))
                                 <span class="text-red-500">{{ $errors->first('region_code') }}</span>
                             @endif
                         </div>
 
                         <div class="mb-4 flex flex-col md:flex-row">
-                            <label for="region_name" class="md:w-4/12 md:text-right mb-2 md:mb-0">Region Name</label>
+                            <label for="region_name" class="md:w-4/12 mb-2 md:mb-0 md:text-left">Region Name</label>
                             <input type="text"
-                                class="w-full p-2 border rounded @error('region_name') border-red-500 @enderror"
-                                id="region_name" name="region_name" value="{{ old('region_name') }}">
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2 @error('region_name') border-red-500 @enderror"
+                                id="region_name" name="region_name" value="{{ old('region_name') }}" autocomplete="off">
                             @if ($errors->has('region_name'))
                                 <span class="text-red-500">{{ $errors->first('region_name') }}</span>
                             @endif
                         </div>
 
                         <div class="mb-4 flex flex-col md:flex-row">
-                            <label for="password" class="md:w-4/12 md:text-right mb-2 md:mb-0">Password</label>
+                            <label for="password" class="md:w-4/12 mb-2 md:mb-0 md:text-left">Password</label>
                             <input type="password"
-                                class="w-full border-4 border-gray-300 rounded p-2 @error('password') border-red-500 @enderror"
-                                id="password" name="password">
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2 @error('password') border-red-500 @enderror"
+                                id="password" name="password" autocomplete="off">
                             @if ($errors->has('password'))
                                 <span class="text-red-500">{{ $errors->first('password') }}</span>
                             @endif
                         </div>
 
                         <div class="mb-4 flex flex-col md:flex-row">
-                            <label for="password_confirmation" class="md:w-4/12 md:text-right mb-2 md:mb-0">Confirm
+                            <label for="password_confirmation" class="md:w-4/12 mb-2 md:mb-0 md:text-left">Confirm
                                 Password</label>
-                            <input type="password" class="w-full border-4 border-gray-300 rounded p-2"
-                                id="password_confirmation" name="password_confirmation">
+                            <input type="password"
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2"
+                                id="password_confirmation" name="password_confirmation" autocomplete="off">
                         </div>
 
                         <div class="mb-4 flex justify-center">
