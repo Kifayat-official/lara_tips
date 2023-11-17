@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Registration & Authentication</title>
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> --}}
     @vite('resources/css/app.css')
     @yield('header-libs')
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-light">
+    {{-- <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
             @if (Auth::check())
                 @php
@@ -68,7 +66,65 @@
                 </ul>
             </div>
         </div>
+    </nav> --}}
+
+    <nav class="bg-gray-100 shadow">
+        <div class="container mx-auto px-4">
+            @if (Auth::check())
+                @php
+                    $regionName = Auth::user()->region_name;
+                    $regionCode = Auth::user()->region_code;
+                @endphp
+
+                @if ($regionCode && $regionName)
+                    <a class="text-xl font-semibold" href="#">
+                        {{ $regionName }} @if ($regionCode)
+                            ({{ $regionCode }})
+                        @endif
+                    </a>
+                @endif
+            @else
+                <a class="text-xl font-semibold" href="#">Login & Register</a>
+            @endif
+
+            <button class="text-gray-500 focus:outline-none lg:hidden" type="button">
+                <span class="material-icons">menu</span>
+            </button>
+            <div class="hidden lg:flex flex-grow items-center" id="navbarNavDropdown">
+                <ul class="flex flex-col lg:flex-row list-none ml-auto">
+                    @guest
+                        <li class="nav-item">
+                            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-gray-800 hover:opacity-75 {{ request()->is('login') ? 'text-gray-700' : '' }}"
+                                href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-gray-800 hover:opacity-75 {{ request()->is('register') ? 'text-gray-700' : '' }}"
+                                href="{{ route('register') }}">Register</a>
+                        </li>
+                    @else
+                        <li class="nav-item dropdown relative">
+                            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-gray-800 hover:opacity-75 cursor-pointer"
+                                onclick="toggleDropdown(event)">
+                                {{ Auth::user()->username }}
+                            </a>
+                            <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                                <li>
+                                    <a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                        href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
+        </div>
     </nav>
+
 
     <div class="container">
         @yield('content')
@@ -78,9 +134,6 @@
         @yield('footer-libs')
     </div>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script> --}}
 </body>
 
 </html>
