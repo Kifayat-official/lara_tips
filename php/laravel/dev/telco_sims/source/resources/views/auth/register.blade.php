@@ -1,4 +1,4 @@
-@extends('auth.layouts')
+{{-- @extends('auth.layouts')
 
 @section('content')
     <div class="row justify-content-center mt-5">
@@ -9,16 +9,7 @@
                 <div class="card-body">
                     <form action="{{ route('store') }}" method="post">
                         @csrf
-                        {{-- <div class="mb-3 row">
-                            <label for="name" class="col-md-4 col-form-label text-md-end text-start">Name</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    id="name" name="name" value="{{ old('name') }}">
-                                @if ($errors->has('name'))
-                                    <span class="text-danger">{{ $errors->first('name') }}</span>
-                                @endif
-                            </div>
-                        </div> --}}
+
                         <div class="mb-3 row">
                             <label for="username" class="col-md-4 col-form-label text-md-end text-start">User Name</label>
                             <div class="col-md-6">
@@ -71,6 +62,80 @@
                         </div>
                         <div class="mb-3 row">
                             <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Register">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection --}}
+
+
+@extends('auth.layouts')
+
+@section('content')
+    <div class="flex justify-center mt-5">
+        <div class="w-full md:w-8/12">
+
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="text-xl font-bold mb-4">Register</div>
+                <div class="mb-4">
+                    <form action="{{ route('store') }}" method="post">
+                        @csrf
+
+                        <div class="mb-4 flex flex-col md:flex-row">
+                            <label for="username" class="md:w-4/12 mb-2 md:mb-0 md:text-left">User Name</label>
+                            <input type="username"
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2 @error('username') border-red-500 @enderror"
+                                id="username" name="username" value="{{ old('username') }}" autocomplete="off">
+                            @if ($errors->has('username'))
+                                <span class="text-red-500">{{ $errors->first('username') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-4 flex flex-col md:flex-row">
+                            <label for="region_code" class="md:w-4/12 mb-2 md:mb-0 md:text-left">Region Code</label>
+                            <input type="text"
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2 @error('region_code') border-red-500 @enderror"
+                                id="region_code" name="region_code" value="{{ old('region_code') }}" autocomplete="off">
+                            @if ($errors->has('region_code'))
+                                <span class="text-red-500">{{ $errors->first('region_code') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-4 flex flex-col md:flex-row">
+                            <label for="region_name" class="md:w-4/12 mb-2 md:mb-0 md:text-left">Region Name</label>
+                            <input type="text"
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2 @error('region_name') border-red-500 @enderror"
+                                id="region_name" name="region_name" value="{{ old('region_name') }}" autocomplete="off">
+                            @if ($errors->has('region_name'))
+                                <span class="text-red-500">{{ $errors->first('region_name') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-4 flex flex-col md:flex-row">
+                            <label for="password" class="md:w-4/12 mb-2 md:mb-0 md:text-left">Password</label>
+                            <input type="password"
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2 @error('password') border-red-500 @enderror"
+                                id="password" name="password" autocomplete="off">
+                            @if ($errors->has('password'))
+                                <span class="text-red-500">{{ $errors->first('password') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-4 flex flex-col md:flex-row">
+                            <label for="password_confirmation" class="md:w-4/12 mb-2 md:mb-0 md:text-left">Confirm
+                                Password</label>
+                            <input type="password"
+                                class="border-2 border-gray-300 focus:border-gray-500 focus:outline-none w-full rounded p-2"
+                                id="password_confirmation" name="password_confirmation" autocomplete="off">
+                        </div>
+
+                        <div class="mb-4 flex justify-center">
+                            <input type="submit"
+                                class="w-1/3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                value="Register">
                         </div>
 
                     </form>

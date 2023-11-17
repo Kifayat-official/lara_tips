@@ -64,33 +64,6 @@
                 <th>Action</th>
             </tr>
         </thead>
-        {{-- @foreach ($sims as $sim)
-            <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $sim->sim_no }}</td>
-                <td>{{ $sim->sim_id }}</td>
-                <td>{{ $sim->telco_name }}</td>
-                <td>{{ $sim->disco_name }}</td>
-                <td>{{ $sim->po_no }}</td>
-                <td>{{ $sim->po_date }}</td>
-                <td>
-                    <span class="badge {{ $sim->status == 1 ? 'bg-success' : 'bg-danger' }}">
-                        {{ $sim->status == 1 ? 'Active' : 'In-Active' }}
-                    </span>
-                </td>
-                <td>
-                    <form action="{{ route('sims.destroy', $sim->id) }}" method="POST">
-
-                        <a class="btn btn-primary" href="{{ route('sims.edit', $sim->id) }}">Edit</a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach --}}
-
-        {{-- {!! $sims->links() !!} --}}
         </div>
     @endsection
 
