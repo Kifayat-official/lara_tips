@@ -1,2 +1,0 @@
-ALTER TABLE `mdc_test_statuses`
-	ADD COLUMN `attachment` VARCHAR(191) NULL DEFAULT NULL AFTER `remarks`;

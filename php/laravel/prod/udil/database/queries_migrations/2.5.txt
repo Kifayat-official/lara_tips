@@ -1,4 +1,0 @@
-ALTER TABLE `mdc_test_sessions` 
-    CHANGE COLUMN `finished_by` `finished_by` CHAR(36) NULL DEFAULT NULL ;
-
-INSERT INTO `perms` (`id`, `group`, `idt`, `parent_idt`, `name`, `order`, `status`) VALUES ('906903e8-99c6-11ea-bb37-0242ac130002', 'Reports', 'test_certificate', NULL, 'Test Certificate', '10', '1');
